@@ -1,0 +1,2330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ca-nldc.vn/" xmlns:s1="http://ca-nldc.vn/AbstractTypes" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://ca-nldc.vn/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ca-nldc.vn/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUnitInCASystem_Now">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UnitTypeID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="maDV" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="programName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUnitInCASystem_NowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckUnitInCASystem_NowResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateFromProgUser_Now">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="programName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCertificateFromProgUser_NowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCertificateFromProgUser_NowResult" type="tns:ArrayOfBase64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBase64Binary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="base64Binary" nillable="true" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ValidateCertificateInCA_Now">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="certRawData" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateCertificateInCA_NowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidateCertificateInCA_NowResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="certificateStatus" type="tns:CertificateStatus_CA" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CertificateStatus_CA">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusInformation" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ValidateCertificateInCA_Date">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="certRawData" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="validateTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateCertificateInCA_DateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidateCertificateInCA_DateResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="certificateStatus" type="tns:CertificateStatus_CA" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateCertificateInTTD_Now">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="programName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="certRawData" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateCertificateInTTD_NowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidateCertificateInTTD_NowResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="certificateStatus" type="tns:CertificateStatus_TTD" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CertificateStatus_TTD">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusInformation" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateAndGetFileInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="programName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FileTypeID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileMaDV" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FileDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateAndGetFileInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateAndGetFileInfoResult" type="tns:FileInfoCA" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FileInfoCA">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FileID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FilePath" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FileTypeID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaDV" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FileDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFileInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fileID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetFileInfoResult" type="tns:FileInfoCA" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileStatusForSign">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fileID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFileStatusForSignResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetFileStatusForSignResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetFileStatus_WithHash">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fileID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fileStatus" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileHash" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="reason" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="programName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetFileStatus_WithHashResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetFileStatus_WithHashResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetFileStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fileID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fileStatus" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="reason" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="programName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetFileStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetFileStatusResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogFileStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fileID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fileStatus" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="reason" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="programName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogFileStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LogFileStatusResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogFileSignature">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fileID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="certRawData" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="signTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="verify" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="signCreator" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fileSignActions" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="programName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogFileSignatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LogFileSignatureResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFL_File_SelectFileID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TuNgay" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="DenNgay" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ma_NM" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FileTypeID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFL_File_SelectFileIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFL_File_SelectFileIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FL_FileRelation_Insert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FileID_1" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="FileID_2" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="FileRelationTypeID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="programName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FL_FileRelation_InsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FL_FileRelation_InsertResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserCerticate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="programName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserCerticateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserCerticateResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="_x0031_.ReturnDataTableUsingThread_TextLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileIDs" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="programName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="_x0031_.ReturnDataTableUsingThread_TextLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_x0031_.ReturnDataTableUsingThread_TextLogResult" type="tns:CAExitCode" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="CAExitCode">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Success" />
+          <s:enumeration value="Error" />
+          <s:enumeration value="UnrecognizedCommand" />
+          <s:enumeration value="BadArgument" />
+          <s:enumeration value="WS_FileNotFound" />
+          <s:enumeration value="WS_FileNotSaved" />
+          <s:enumeration value="WS_CertificateNotFoundOrInvalid" />
+          <s:enumeration value="WS_CertificateMoreThanOne" />
+          <s:enumeration value="WS_PrivateKeyNotFound" />
+          <s:enumeration value="WS_PrivateKeyMoreThanOne" />
+          <s:enumeration value="WS_FileInSign" />
+          <s:enumeration value="WS_FileReplaced" />
+          <s:enumeration value="WS_CertificateInvalidInCA" />
+          <s:enumeration value="WS_SaveFileTimeOut" />
+          <s:enumeration value="WS_Timeout" />
+          <s:enumeration value="WS_BadFormatOuputConsole" />
+          <s:enumeration value="HSM_PinIncorrect" />
+          <s:enumeration value="HSM_LoginFailed" />
+          <s:enumeration value="HSM_DuplicateKey" />
+          <s:enumeration value="HSM_KeyTypeNotSupported" />
+          <s:enumeration value="HSM_KeyNotFound" />
+          <s:enumeration value="HSM_PinLocked" />
+          <s:enumeration value="HSM_PinExpired" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="_x0032_.ReturnDataTableUsingThread_TextLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="arrFileIDs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="programName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="_x0032_.ReturnDataTableUsingThread_TextLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_x0032_.ReturnDataTableUsingThread_TextLogResult" type="tns:CAExitCode" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="_x0031_.ReturnDataTableUsingThreadWithTimeout_TextLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileIDs" type="tns:ArrayOfInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="programName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeOut" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="_x0031_.ReturnDataTableUsingThreadWithTimeout_TextLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_x0031_.ReturnDataTableUsingThreadWithTimeout_TextLogResult" type="tns:CAExitCode" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="_x0032_.ReturnDataTableUsingThreadWithTimeout_TextLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="arrFileIDs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="programName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeOut" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="_x0032_.ReturnDataTableUsingThreadWithTimeout_TextLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_x0032_.ReturnDataTableUsingThreadWithTimeout_TextLogResult" type="tns:CAExitCode" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FL_File_SelectForAllowSign_Array">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="arrFileID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="programName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FL_File_SelectForAllowSign_ArrayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FL_File_SelectForAllowSign_ArrayResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtFileInfo">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FL_File_SelectForSaveSign">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_StatusLog" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FL_File_SelectForSaveSignResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FL_File_SelectForSaveSignResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FL_File_UpdateForLogSign">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fileID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="certSerial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="signTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="verify" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="signCreator" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fileSignActions" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="backupPath" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reason" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="programName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FL_File_UpdateForLogSignResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FL_File_UpdateForLogSignResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SignFileByLink">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sourcePath" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="progID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userProg" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SignFileByLinkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SignFileByLinkResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="_x0032_.ReturnDataTableUsingThread_TextLog9899879">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="arrFileIDs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="programName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="_x0032_.ReturnDataTableUsingThread_TextLog9899879Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_x0032_.ReturnDataTableUsingThread_TextLog9899879Result" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="_x0034_.SignFilesByID_ReturnDetail_NoApp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="arrFileIDs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="programName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="strError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="_x0034_.SignFilesByID_ReturnDetail_NoAppResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_x0034_.SignFilesByID_ReturnDetail_NoAppResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="dtResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="strError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckLoginHSM_TestLoginFailed">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="programName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckLoginHSM_TestLoginFailedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckLoginHSM_TestLoginFailedResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestRef">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestRefResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestRefResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="ArrayOfBase64Binary" nillable="true" type="tns:ArrayOfBase64Binary" />
+      <s:element name="FileInfoCA" type="tns:FileInfoCA" />
+      <s:element name="DataTable" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="int" type="s:int" />
+    </s:schema>
+    <s:schema targetNamespace="http://ca-nldc.vn/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckUnitInCASystem_NowSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckUnitInCASystem_Now" />
+  </wsdl:message>
+  <wsdl:message name="CheckUnitInCASystem_NowSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckUnitInCASystem_NowResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateFromProgUser_NowSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCertificateFromProgUser_Now" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateFromProgUser_NowSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCertificateFromProgUser_NowResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateCertificateInCA_NowSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateCertificateInCA_Now" />
+  </wsdl:message>
+  <wsdl:message name="ValidateCertificateInCA_NowSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateCertificateInCA_NowResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateCertificateInCA_DateSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateCertificateInCA_Date" />
+  </wsdl:message>
+  <wsdl:message name="ValidateCertificateInCA_DateSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateCertificateInCA_DateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateCertificateInTTD_NowSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateCertificateInTTD_Now" />
+  </wsdl:message>
+  <wsdl:message name="ValidateCertificateInTTD_NowSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateCertificateInTTD_NowResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateAndGetFileInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateAndGetFileInfo" />
+  </wsdl:message>
+  <wsdl:message name="CreateAndGetFileInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateAndGetFileInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFileInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFileInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetFileInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFileInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFileStatusForSignSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFileStatusForSign" />
+  </wsdl:message>
+  <wsdl:message name="GetFileStatusForSignSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFileStatusForSignResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetFileStatus_WithHashSoapIn">
+    <wsdl:part name="parameters" element="tns:SetFileStatus_WithHash" />
+  </wsdl:message>
+  <wsdl:message name="SetFileStatus_WithHashSoapOut">
+    <wsdl:part name="parameters" element="tns:SetFileStatus_WithHashResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetFileStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:SetFileStatus" />
+  </wsdl:message>
+  <wsdl:message name="SetFileStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:SetFileStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogFileStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:LogFileStatus" />
+  </wsdl:message>
+  <wsdl:message name="LogFileStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:LogFileStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogFileSignatureSoapIn">
+    <wsdl:part name="parameters" element="tns:LogFileSignature" />
+  </wsdl:message>
+  <wsdl:message name="LogFileSignatureSoapOut">
+    <wsdl:part name="parameters" element="tns:LogFileSignatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFL_File_SelectFileIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFL_File_SelectFileID" />
+  </wsdl:message>
+  <wsdl:message name="GetFL_File_SelectFileIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFL_File_SelectFileIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="FL_FileRelation_InsertSoapIn">
+    <wsdl:part name="parameters" element="tns:FL_FileRelation_Insert" />
+  </wsdl:message>
+  <wsdl:message name="FL_FileRelation_InsertSoapOut">
+    <wsdl:part name="parameters" element="tns:FL_FileRelation_InsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserCerticateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserCerticate" />
+  </wsdl:message>
+  <wsdl:message name="GetUserCerticateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserCerticateResponse" />
+  </wsdl:message>
+  <wsdl:message name="_x0031_.ReturnDataTableUsingThread_TextLogSoapIn">
+    <wsdl:part name="parameters" element="tns:_x0031_.ReturnDataTableUsingThread_TextLog" />
+  </wsdl:message>
+  <wsdl:message name="_x0031_.ReturnDataTableUsingThread_TextLogSoapOut">
+    <wsdl:part name="parameters" element="tns:_x0031_.ReturnDataTableUsingThread_TextLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="_x0032_.ReturnDataTableUsingThread_TextLogSoapIn">
+    <wsdl:part name="parameters" element="tns:_x0032_.ReturnDataTableUsingThread_TextLog" />
+  </wsdl:message>
+  <wsdl:message name="_x0032_.ReturnDataTableUsingThread_TextLogSoapOut">
+    <wsdl:part name="parameters" element="tns:_x0032_.ReturnDataTableUsingThread_TextLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="_x0031_.ReturnDataTableUsingThreadWithTimeout_TextLogSoapIn">
+    <wsdl:part name="parameters" element="tns:_x0031_.ReturnDataTableUsingThreadWithTimeout_TextLog" />
+  </wsdl:message>
+  <wsdl:message name="_x0031_.ReturnDataTableUsingThreadWithTimeout_TextLogSoapOut">
+    <wsdl:part name="parameters" element="tns:_x0031_.ReturnDataTableUsingThreadWithTimeout_TextLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="_x0032_.ReturnDataTableUsingThreadWithTimeout_TextLogSoapIn">
+    <wsdl:part name="parameters" element="tns:_x0032_.ReturnDataTableUsingThreadWithTimeout_TextLog" />
+  </wsdl:message>
+  <wsdl:message name="_x0032_.ReturnDataTableUsingThreadWithTimeout_TextLogSoapOut">
+    <wsdl:part name="parameters" element="tns:_x0032_.ReturnDataTableUsingThreadWithTimeout_TextLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="FL_File_SelectForAllowSign_ArraySoapIn">
+    <wsdl:part name="parameters" element="tns:FL_File_SelectForAllowSign_Array" />
+  </wsdl:message>
+  <wsdl:message name="FL_File_SelectForAllowSign_ArraySoapOut">
+    <wsdl:part name="parameters" element="tns:FL_File_SelectForAllowSign_ArrayResponse" />
+  </wsdl:message>
+  <wsdl:message name="FL_File_SelectForSaveSignSoapIn">
+    <wsdl:part name="parameters" element="tns:FL_File_SelectForSaveSign" />
+  </wsdl:message>
+  <wsdl:message name="FL_File_SelectForSaveSignSoapOut">
+    <wsdl:part name="parameters" element="tns:FL_File_SelectForSaveSignResponse" />
+  </wsdl:message>
+  <wsdl:message name="FL_File_UpdateForLogSignSoapIn">
+    <wsdl:part name="parameters" element="tns:FL_File_UpdateForLogSign" />
+  </wsdl:message>
+  <wsdl:message name="FL_File_UpdateForLogSignSoapOut">
+    <wsdl:part name="parameters" element="tns:FL_File_UpdateForLogSignResponse" />
+  </wsdl:message>
+  <wsdl:message name="SignFileByLinkSoapIn">
+    <wsdl:part name="parameters" element="tns:SignFileByLink" />
+  </wsdl:message>
+  <wsdl:message name="SignFileByLinkSoapOut">
+    <wsdl:part name="parameters" element="tns:SignFileByLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="_x0032_.ReturnDataTableUsingThread_TextLog9899879SoapIn">
+    <wsdl:part name="parameters" element="tns:_x0032_.ReturnDataTableUsingThread_TextLog9899879" />
+  </wsdl:message>
+  <wsdl:message name="_x0032_.ReturnDataTableUsingThread_TextLog9899879SoapOut">
+    <wsdl:part name="parameters" element="tns:_x0032_.ReturnDataTableUsingThread_TextLog9899879Response" />
+  </wsdl:message>
+  <wsdl:message name="_x0034_.SignFilesByID_ReturnDetail_NoAppSoapIn">
+    <wsdl:part name="parameters" element="tns:_x0034_.SignFilesByID_ReturnDetail_NoApp" />
+  </wsdl:message>
+  <wsdl:message name="_x0034_.SignFilesByID_ReturnDetail_NoAppSoapOut">
+    <wsdl:part name="parameters" element="tns:_x0034_.SignFilesByID_ReturnDetail_NoAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckLoginHSM_TestLoginFailedSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckLoginHSM_TestLoginFailed" />
+  </wsdl:message>
+  <wsdl:message name="CheckLoginHSM_TestLoginFailedSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckLoginHSM_TestLoginFailedResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestRefSoapIn">
+    <wsdl:part name="parameters" element="tns:TestRef" />
+  </wsdl:message>
+  <wsdl:message name="TestRefSoapOut">
+    <wsdl:part name="parameters" element="tns:TestRefResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUnitInCASystem_NowHttpGetIn">
+    <wsdl:part name="UnitTypeID" type="s:string" />
+    <wsdl:part name="maDV" type="s:string" />
+    <wsdl:part name="programName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUnitInCASystem_NowHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateFromProgUser_NowHttpGetIn">
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateFromProgUser_NowHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBase64Binary" />
+  </wsdl:message>
+  <wsdl:message name="CreateAndGetFileInfoHttpGetIn">
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="FileTypeID" type="s:string" />
+    <wsdl:part name="FileMaDV" type="s:string" />
+    <wsdl:part name="FileDate" type="s:string" />
+    <wsdl:part name="FileName" type="s:string" />
+    <wsdl:part name="Description" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateAndGetFileInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:FileInfoCA" />
+  </wsdl:message>
+  <wsdl:message name="GetFileInfoHttpGetIn">
+    <wsdl:part name="fileID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFileInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:FileInfoCA" />
+  </wsdl:message>
+  <wsdl:message name="GetFileStatusForSignHttpGetIn">
+    <wsdl:part name="fileID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFileStatusForSignHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SetFileStatus_WithHashHttpGetIn">
+    <wsdl:part name="fileID" type="s:string" />
+    <wsdl:part name="fileStatus" type="s:string" />
+    <wsdl:part name="fileHash" type="s1:StringArray" />
+    <wsdl:part name="reason" type="s:string" />
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetFileStatus_WithHashHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SetFileStatusHttpGetIn">
+    <wsdl:part name="fileID" type="s:string" />
+    <wsdl:part name="fileStatus" type="s:string" />
+    <wsdl:part name="reason" type="s:string" />
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetFileStatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="LogFileStatusHttpGetIn">
+    <wsdl:part name="fileID" type="s:string" />
+    <wsdl:part name="fileStatus" type="s:string" />
+    <wsdl:part name="reason" type="s:string" />
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogFileStatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="LogFileSignatureHttpGetIn">
+    <wsdl:part name="fileID" type="s:string" />
+    <wsdl:part name="certRawData" type="s1:StringArray" />
+    <wsdl:part name="signTime" type="s:string" />
+    <wsdl:part name="verify" type="s:string" />
+    <wsdl:part name="signCreator" type="s:string" />
+    <wsdl:part name="fileSignActions" type="s:string" />
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogFileSignatureHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetFL_File_SelectFileIDHttpGetIn">
+    <wsdl:part name="TuNgay" type="s:string" />
+    <wsdl:part name="DenNgay" type="s:string" />
+    <wsdl:part name="Ma_NM" type="s:string" />
+    <wsdl:part name="FileTypeID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFL_File_SelectFileIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="FL_FileRelation_InsertHttpGetIn">
+    <wsdl:part name="FileID_1" type="s:string" />
+    <wsdl:part name="FileID_2" type="s:string" />
+    <wsdl:part name="FileRelationTypeID" type="s:string" />
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FL_FileRelation_InsertHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetUserCerticateHttpGetIn">
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserCerticateHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="FL_File_SelectForSaveSignHttpGetIn">
+    <wsdl:part name="id_StatusLog" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FL_File_SelectForSaveSignHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="FL_File_UpdateForLogSignHttpGetIn">
+    <wsdl:part name="fileID" type="s:string" />
+    <wsdl:part name="certSerial" type="s:string" />
+    <wsdl:part name="signTime" type="s:string" />
+    <wsdl:part name="verify" type="s:string" />
+    <wsdl:part name="signCreator" type="s:string" />
+    <wsdl:part name="fileSignActions" type="s:string" />
+    <wsdl:part name="backupPath" type="s:string" />
+    <wsdl:part name="reason" type="s:string" />
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FL_File_UpdateForLogSignHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SignFileByLinkHttpGetIn">
+    <wsdl:part name="sourcePath" type="s:string" />
+    <wsdl:part name="progID" type="s:string" />
+    <wsdl:part name="userProg" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SignFileByLinkHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="_x0032_.ReturnDataTableUsingThread_TextLog9899879HttpGetIn">
+    <wsdl:part name="arrFileIDs" type="s:string" />
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="_x0032_.ReturnDataTableUsingThread_TextLog9899879HttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="CheckLoginHSM_TestLoginFailedHttpGetIn">
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckLoginHSM_TestLoginFailedHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUnitInCASystem_NowHttpPostIn">
+    <wsdl:part name="UnitTypeID" type="s:string" />
+    <wsdl:part name="maDV" type="s:string" />
+    <wsdl:part name="programName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUnitInCASystem_NowHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateFromProgUser_NowHttpPostIn">
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCertificateFromProgUser_NowHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBase64Binary" />
+  </wsdl:message>
+  <wsdl:message name="CreateAndGetFileInfoHttpPostIn">
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="FileTypeID" type="s:string" />
+    <wsdl:part name="FileMaDV" type="s:string" />
+    <wsdl:part name="FileDate" type="s:string" />
+    <wsdl:part name="FileName" type="s:string" />
+    <wsdl:part name="Description" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateAndGetFileInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:FileInfoCA" />
+  </wsdl:message>
+  <wsdl:message name="GetFileInfoHttpPostIn">
+    <wsdl:part name="fileID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFileInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:FileInfoCA" />
+  </wsdl:message>
+  <wsdl:message name="GetFileStatusForSignHttpPostIn">
+    <wsdl:part name="fileID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFileStatusForSignHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SetFileStatus_WithHashHttpPostIn">
+    <wsdl:part name="fileID" type="s:string" />
+    <wsdl:part name="fileStatus" type="s:string" />
+    <wsdl:part name="fileHash" type="s1:StringArray" />
+    <wsdl:part name="reason" type="s:string" />
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetFileStatus_WithHashHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SetFileStatusHttpPostIn">
+    <wsdl:part name="fileID" type="s:string" />
+    <wsdl:part name="fileStatus" type="s:string" />
+    <wsdl:part name="reason" type="s:string" />
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetFileStatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="LogFileStatusHttpPostIn">
+    <wsdl:part name="fileID" type="s:string" />
+    <wsdl:part name="fileStatus" type="s:string" />
+    <wsdl:part name="reason" type="s:string" />
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogFileStatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="LogFileSignatureHttpPostIn">
+    <wsdl:part name="fileID" type="s:string" />
+    <wsdl:part name="certRawData" type="s1:StringArray" />
+    <wsdl:part name="signTime" type="s:string" />
+    <wsdl:part name="verify" type="s:string" />
+    <wsdl:part name="signCreator" type="s:string" />
+    <wsdl:part name="fileSignActions" type="s:string" />
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogFileSignatureHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetFL_File_SelectFileIDHttpPostIn">
+    <wsdl:part name="TuNgay" type="s:string" />
+    <wsdl:part name="DenNgay" type="s:string" />
+    <wsdl:part name="Ma_NM" type="s:string" />
+    <wsdl:part name="FileTypeID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFL_File_SelectFileIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="FL_FileRelation_InsertHttpPostIn">
+    <wsdl:part name="FileID_1" type="s:string" />
+    <wsdl:part name="FileID_2" type="s:string" />
+    <wsdl:part name="FileRelationTypeID" type="s:string" />
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FL_FileRelation_InsertHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetUserCerticateHttpPostIn">
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserCerticateHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="FL_File_SelectForSaveSignHttpPostIn">
+    <wsdl:part name="id_StatusLog" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FL_File_SelectForSaveSignHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="FL_File_UpdateForLogSignHttpPostIn">
+    <wsdl:part name="fileID" type="s:string" />
+    <wsdl:part name="certSerial" type="s:string" />
+    <wsdl:part name="signTime" type="s:string" />
+    <wsdl:part name="verify" type="s:string" />
+    <wsdl:part name="signCreator" type="s:string" />
+    <wsdl:part name="fileSignActions" type="s:string" />
+    <wsdl:part name="backupPath" type="s:string" />
+    <wsdl:part name="reason" type="s:string" />
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FL_File_UpdateForLogSignHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SignFileByLinkHttpPostIn">
+    <wsdl:part name="sourcePath" type="s:string" />
+    <wsdl:part name="progID" type="s:string" />
+    <wsdl:part name="userProg" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SignFileByLinkHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="_x0032_.ReturnDataTableUsingThread_TextLog9899879HttpPostIn">
+    <wsdl:part name="arrFileIDs" type="s:string" />
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="_x0032_.ReturnDataTableUsingThread_TextLog9899879HttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="CheckLoginHSM_TestLoginFailedHttpPostIn">
+    <wsdl:part name="programName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckLoginHSM_TestLoginFailedHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:portType name="CAServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUnitInCASystem_Now">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Kiểm tra xem có cần check CA với đơn vị hay không.</wsdl:documentation>
+      <wsdl:input message="tns:CheckUnitInCASystem_NowSoapIn" />
+      <wsdl:output message="tns:CheckUnitInCASystem_NowSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateFromProgUser_Now">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lấy danh sách chứng thư hợp lệ của người dùng trong hệ thống. Trả về mảng RawData của các chứng thư.</wsdl:documentation>
+      <wsdl:input message="tns:GetCertificateFromProgUser_NowSoapIn" />
+      <wsdl:output message="tns:GetCertificateFromProgUser_NowSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCertificateInCA_Now">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Xác thực chứng thư với nhà cung cấp CA ở thời điểm hiện tại. Trả về CertificateStatus để convert thành X509ChainStatus</wsdl:documentation>
+      <wsdl:input message="tns:ValidateCertificateInCA_NowSoapIn" />
+      <wsdl:output message="tns:ValidateCertificateInCA_NowSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCertificateInCA_Date">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Xác thực chứng thư với nhà cung cấp CA ở thời điểm quá khứ. Trả về CertificateStatus để convert thành X509ChainStatus.</wsdl:documentation>
+      <wsdl:input message="tns:ValidateCertificateInCA_DateSoapIn" />
+      <wsdl:output message="tns:ValidateCertificateInCA_DateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCertificateInTTD_Now">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Xác thực chứng thư với Thị trường điện ở thời điểm hiện tại</wsdl:documentation>
+      <wsdl:input message="tns:ValidateCertificateInTTD_NowSoapIn" />
+      <wsdl:output message="tns:ValidateCertificateInTTD_NowSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAndGetFileInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Khởi tạo văn bản cùng với đánh số văn bản và tạo đường dẫn văn bản. Ghi log thay đổi trạng thái.</wsdl:documentation>
+      <wsdl:input message="tns:CreateAndGetFileInfoSoapIn" />
+      <wsdl:output message="tns:CreateAndGetFileInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lấy thông tin file theo FileID</wsdl:documentation>
+      <wsdl:input message="tns:GetFileInfoSoapIn" />
+      <wsdl:output message="tns:GetFileInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileStatusForSign">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lấy trạng thái hiện tại của file và kiểm tra có OK để ký hay không</wsdl:documentation>
+      <wsdl:input message="tns:GetFileStatusForSignSoapIn" />
+      <wsdl:output message="tns:GetFileStatusForSignSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetFileStatus_WithHash">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Thiết lập trạng thái với chuỗi HASH sau khi lưu file và ghi log thay đổi trạng thái.</wsdl:documentation>
+      <wsdl:input message="tns:SetFileStatus_WithHashSoapIn" />
+      <wsdl:output message="tns:SetFileStatus_WithHashSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetFileStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Thiết lập trạng thái cho file và ghi log thay đổi trạng thái.</wsdl:documentation>
+      <wsdl:input message="tns:SetFileStatusSoapIn" />
+      <wsdl:output message="tns:SetFileStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogFileStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ghi log thay đổi trạng thái file.</wsdl:documentation>
+      <wsdl:input message="tns:LogFileStatusSoapIn" />
+      <wsdl:output message="tns:LogFileStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogFileSignature">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ghi log ký/xóa chữ ký trên file.</wsdl:documentation>
+      <wsdl:input message="tns:LogFileSignatureSoapIn" />
+      <wsdl:output message="tns:LogFileSignatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFL_File_SelectFileID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lấy file mới nhất từ ngày đến ngày có status là 1, 2 theo Ma_NM.</wsdl:documentation>
+      <wsdl:input message="tns:GetFL_File_SelectFileIDSoapIn" />
+      <wsdl:output message="tns:GetFL_File_SelectFileIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FL_FileRelation_Insert">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cập nhật văn bản liên quan. Cập nhật trạng thái FileID_2 nếu FileRelationTypeID = 1 (VanBanThayThe).</wsdl:documentation>
+      <wsdl:input message="tns:FL_FileRelation_InsertSoapIn" />
+      <wsdl:output message="tns:FL_FileRelation_InsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserCerticate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lấy thông tin chứng thư số của User. Chỉ áp dụng cho user thuộc A0.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserCerticateSoapIn" />
+      <wsdl:output message="tns:GetUserCerticateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail5">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ký nhiều file trong hệ thống quản lý file, sử dụng Thread. Ghi log ký file. Trả về kết quả từng file vào file text</wsdl:documentation>
+      <wsdl:input name="_x0031_.ReturnDataTableUsingThread_TextLog" message="tns:_x0031_.ReturnDataTableUsingThread_TextLogSoapIn" />
+      <wsdl:output name="_x0031_.ReturnDataTableUsingThread_TextLog" message="tns:_x0031_.ReturnDataTableUsingThread_TextLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail5">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ký nhiều file trong hệ thống quản lý file, sử dụng Thread. Ghi log ký file. Trả về kết quả từng file vào file text</wsdl:documentation>
+      <wsdl:input name="_x0032_.ReturnDataTableUsingThread_TextLog" message="tns:_x0032_.ReturnDataTableUsingThread_TextLogSoapIn" />
+      <wsdl:output name="_x0032_.ReturnDataTableUsingThread_TextLog" message="tns:_x0032_.ReturnDataTableUsingThread_TextLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail5">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ký nhiều file trong hệ thống quản lý file, sử dụng Thread. Ghi log ký file. Trả về kết quả từng file vào file text</wsdl:documentation>
+      <wsdl:input name="_x0031_.ReturnDataTableUsingThreadWithTimeout_TextLog" message="tns:_x0031_.ReturnDataTableUsingThreadWithTimeout_TextLogSoapIn" />
+      <wsdl:output name="_x0031_.ReturnDataTableUsingThreadWithTimeout_TextLog" message="tns:_x0031_.ReturnDataTableUsingThreadWithTimeout_TextLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail5">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ký nhiều file trong hệ thống quản lý file, sử dụng Thread. Ghi log ký file. Trả về kết quả từng file vào file text</wsdl:documentation>
+      <wsdl:input name="_x0032_.ReturnDataTableUsingThreadWithTimeout_TextLog" message="tns:_x0032_.ReturnDataTableUsingThreadWithTimeout_TextLogSoapIn" />
+      <wsdl:output name="_x0032_.ReturnDataTableUsingThreadWithTimeout_TextLog" message="tns:_x0032_.ReturnDataTableUsingThreadWithTimeout_TextLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FL_File_SelectForAllowSign_Array">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ký bước 1: Kiểm tra trạng thái nhiều file có cho phép ký hay không và ghi log. Trả về thông tin file và ID_Log phiên ký.</wsdl:documentation>
+      <wsdl:input message="tns:FL_File_SelectForAllowSign_ArraySoapIn" />
+      <wsdl:output message="tns:FL_File_SelectForAllowSign_ArraySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FL_File_SelectForSaveSign">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ký bước 2: Xét phiên log file xem có cho phép lưu file hay không.</wsdl:documentation>
+      <wsdl:input message="tns:FL_File_SelectForSaveSignSoapIn" />
+      <wsdl:output message="tns:FL_File_SelectForSaveSignSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FL_File_UpdateForLogSign">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ký bước 3: Cập nhật log ký/xóa chữ ký và thiết lập trạng thái về LuuFile.</wsdl:documentation>
+      <wsdl:input message="tns:FL_File_UpdateForLogSignSoapIn" />
+      <wsdl:output message="tns:FL_File_UpdateForLogSignSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SignFileByLink">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ký file ở server thông qua file path.</wsdl:documentation>
+      <wsdl:input message="tns:SignFileByLinkSoapIn" />
+      <wsdl:output message="tns:SignFileByLinkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail_TestLoginFailed">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ký nhiều file trong hệ thống quản lý file, sử dụng Thread. Ghi log ký file. Trả về kết quả từng file vào file text</wsdl:documentation>
+      <wsdl:input name="_x0032_.ReturnDataTableUsingThread_TextLog9899879" message="tns:_x0032_.ReturnDataTableUsingThread_TextLog9899879SoapIn" />
+      <wsdl:output name="_x0032_.ReturnDataTableUsingThread_TextLog9899879" message="tns:_x0032_.ReturnDataTableUsingThread_TextLog9899879SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail_NoApp">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ký nhiều file trong hệ thống quản lý file: tuần tự, trực tiếp từ CAService</wsdl:documentation>
+      <wsdl:input name="_x0034_.SignFilesByID_ReturnDetail_NoApp" message="tns:_x0034_.SignFilesByID_ReturnDetail_NoAppSoapIn" />
+      <wsdl:output name="_x0034_.SignFilesByID_ReturnDetail_NoApp" message="tns:_x0034_.SignFilesByID_ReturnDetail_NoAppSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckLoginHSM_TestLoginFailed">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Kiểm tra có đăng nhập được HSM hay không.</wsdl:documentation>
+      <wsdl:input message="tns:CheckLoginHSM_TestLoginFailedSoapIn" />
+      <wsdl:output message="tns:CheckLoginHSM_TestLoginFailedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestRef">
+      <wsdl:input message="tns:TestRefSoapIn" />
+      <wsdl:output message="tns:TestRefSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CAServiceHttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUnitInCASystem_Now">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Kiểm tra xem có cần check CA với đơn vị hay không.</wsdl:documentation>
+      <wsdl:input message="tns:CheckUnitInCASystem_NowHttpGetIn" />
+      <wsdl:output message="tns:CheckUnitInCASystem_NowHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateFromProgUser_Now">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lấy danh sách chứng thư hợp lệ của người dùng trong hệ thống. Trả về mảng RawData của các chứng thư.</wsdl:documentation>
+      <wsdl:input message="tns:GetCertificateFromProgUser_NowHttpGetIn" />
+      <wsdl:output message="tns:GetCertificateFromProgUser_NowHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAndGetFileInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Khởi tạo văn bản cùng với đánh số văn bản và tạo đường dẫn văn bản. Ghi log thay đổi trạng thái.</wsdl:documentation>
+      <wsdl:input message="tns:CreateAndGetFileInfoHttpGetIn" />
+      <wsdl:output message="tns:CreateAndGetFileInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lấy thông tin file theo FileID</wsdl:documentation>
+      <wsdl:input message="tns:GetFileInfoHttpGetIn" />
+      <wsdl:output message="tns:GetFileInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileStatusForSign">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lấy trạng thái hiện tại của file và kiểm tra có OK để ký hay không</wsdl:documentation>
+      <wsdl:input message="tns:GetFileStatusForSignHttpGetIn" />
+      <wsdl:output message="tns:GetFileStatusForSignHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetFileStatus_WithHash">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Thiết lập trạng thái với chuỗi HASH sau khi lưu file và ghi log thay đổi trạng thái.</wsdl:documentation>
+      <wsdl:input message="tns:SetFileStatus_WithHashHttpGetIn" />
+      <wsdl:output message="tns:SetFileStatus_WithHashHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetFileStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Thiết lập trạng thái cho file và ghi log thay đổi trạng thái.</wsdl:documentation>
+      <wsdl:input message="tns:SetFileStatusHttpGetIn" />
+      <wsdl:output message="tns:SetFileStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogFileStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ghi log thay đổi trạng thái file.</wsdl:documentation>
+      <wsdl:input message="tns:LogFileStatusHttpGetIn" />
+      <wsdl:output message="tns:LogFileStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogFileSignature">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ghi log ký/xóa chữ ký trên file.</wsdl:documentation>
+      <wsdl:input message="tns:LogFileSignatureHttpGetIn" />
+      <wsdl:output message="tns:LogFileSignatureHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFL_File_SelectFileID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lấy file mới nhất từ ngày đến ngày có status là 1, 2 theo Ma_NM.</wsdl:documentation>
+      <wsdl:input message="tns:GetFL_File_SelectFileIDHttpGetIn" />
+      <wsdl:output message="tns:GetFL_File_SelectFileIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FL_FileRelation_Insert">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cập nhật văn bản liên quan. Cập nhật trạng thái FileID_2 nếu FileRelationTypeID = 1 (VanBanThayThe).</wsdl:documentation>
+      <wsdl:input message="tns:FL_FileRelation_InsertHttpGetIn" />
+      <wsdl:output message="tns:FL_FileRelation_InsertHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserCerticate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lấy thông tin chứng thư số của User. Chỉ áp dụng cho user thuộc A0.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserCerticateHttpGetIn" />
+      <wsdl:output message="tns:GetUserCerticateHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FL_File_SelectForSaveSign">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ký bước 2: Xét phiên log file xem có cho phép lưu file hay không.</wsdl:documentation>
+      <wsdl:input message="tns:FL_File_SelectForSaveSignHttpGetIn" />
+      <wsdl:output message="tns:FL_File_SelectForSaveSignHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FL_File_UpdateForLogSign">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ký bước 3: Cập nhật log ký/xóa chữ ký và thiết lập trạng thái về LuuFile.</wsdl:documentation>
+      <wsdl:input message="tns:FL_File_UpdateForLogSignHttpGetIn" />
+      <wsdl:output message="tns:FL_File_UpdateForLogSignHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SignFileByLink">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ký file ở server thông qua file path.</wsdl:documentation>
+      <wsdl:input message="tns:SignFileByLinkHttpGetIn" />
+      <wsdl:output message="tns:SignFileByLinkHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail_TestLoginFailed">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ký nhiều file trong hệ thống quản lý file, sử dụng Thread. Ghi log ký file. Trả về kết quả từng file vào file text</wsdl:documentation>
+      <wsdl:input name="_x0032_.ReturnDataTableUsingThread_TextLog9899879" message="tns:_x0032_.ReturnDataTableUsingThread_TextLog9899879HttpGetIn" />
+      <wsdl:output name="_x0032_.ReturnDataTableUsingThread_TextLog9899879" message="tns:_x0032_.ReturnDataTableUsingThread_TextLog9899879HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckLoginHSM_TestLoginFailed">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Kiểm tra có đăng nhập được HSM hay không.</wsdl:documentation>
+      <wsdl:input message="tns:CheckLoginHSM_TestLoginFailedHttpGetIn" />
+      <wsdl:output message="tns:CheckLoginHSM_TestLoginFailedHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CAServiceHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUnitInCASystem_Now">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Kiểm tra xem có cần check CA với đơn vị hay không.</wsdl:documentation>
+      <wsdl:input message="tns:CheckUnitInCASystem_NowHttpPostIn" />
+      <wsdl:output message="tns:CheckUnitInCASystem_NowHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateFromProgUser_Now">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lấy danh sách chứng thư hợp lệ của người dùng trong hệ thống. Trả về mảng RawData của các chứng thư.</wsdl:documentation>
+      <wsdl:input message="tns:GetCertificateFromProgUser_NowHttpPostIn" />
+      <wsdl:output message="tns:GetCertificateFromProgUser_NowHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAndGetFileInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Khởi tạo văn bản cùng với đánh số văn bản và tạo đường dẫn văn bản. Ghi log thay đổi trạng thái.</wsdl:documentation>
+      <wsdl:input message="tns:CreateAndGetFileInfoHttpPostIn" />
+      <wsdl:output message="tns:CreateAndGetFileInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lấy thông tin file theo FileID</wsdl:documentation>
+      <wsdl:input message="tns:GetFileInfoHttpPostIn" />
+      <wsdl:output message="tns:GetFileInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileStatusForSign">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lấy trạng thái hiện tại của file và kiểm tra có OK để ký hay không</wsdl:documentation>
+      <wsdl:input message="tns:GetFileStatusForSignHttpPostIn" />
+      <wsdl:output message="tns:GetFileStatusForSignHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetFileStatus_WithHash">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Thiết lập trạng thái với chuỗi HASH sau khi lưu file và ghi log thay đổi trạng thái.</wsdl:documentation>
+      <wsdl:input message="tns:SetFileStatus_WithHashHttpPostIn" />
+      <wsdl:output message="tns:SetFileStatus_WithHashHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetFileStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Thiết lập trạng thái cho file và ghi log thay đổi trạng thái.</wsdl:documentation>
+      <wsdl:input message="tns:SetFileStatusHttpPostIn" />
+      <wsdl:output message="tns:SetFileStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogFileStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ghi log thay đổi trạng thái file.</wsdl:documentation>
+      <wsdl:input message="tns:LogFileStatusHttpPostIn" />
+      <wsdl:output message="tns:LogFileStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogFileSignature">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ghi log ký/xóa chữ ký trên file.</wsdl:documentation>
+      <wsdl:input message="tns:LogFileSignatureHttpPostIn" />
+      <wsdl:output message="tns:LogFileSignatureHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFL_File_SelectFileID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lấy file mới nhất từ ngày đến ngày có status là 1, 2 theo Ma_NM.</wsdl:documentation>
+      <wsdl:input message="tns:GetFL_File_SelectFileIDHttpPostIn" />
+      <wsdl:output message="tns:GetFL_File_SelectFileIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FL_FileRelation_Insert">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cập nhật văn bản liên quan. Cập nhật trạng thái FileID_2 nếu FileRelationTypeID = 1 (VanBanThayThe).</wsdl:documentation>
+      <wsdl:input message="tns:FL_FileRelation_InsertHttpPostIn" />
+      <wsdl:output message="tns:FL_FileRelation_InsertHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserCerticate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Lấy thông tin chứng thư số của User. Chỉ áp dụng cho user thuộc A0.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserCerticateHttpPostIn" />
+      <wsdl:output message="tns:GetUserCerticateHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FL_File_SelectForSaveSign">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ký bước 2: Xét phiên log file xem có cho phép lưu file hay không.</wsdl:documentation>
+      <wsdl:input message="tns:FL_File_SelectForSaveSignHttpPostIn" />
+      <wsdl:output message="tns:FL_File_SelectForSaveSignHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FL_File_UpdateForLogSign">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ký bước 3: Cập nhật log ký/xóa chữ ký và thiết lập trạng thái về LuuFile.</wsdl:documentation>
+      <wsdl:input message="tns:FL_File_UpdateForLogSignHttpPostIn" />
+      <wsdl:output message="tns:FL_File_UpdateForLogSignHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SignFileByLink">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ký file ở server thông qua file path.</wsdl:documentation>
+      <wsdl:input message="tns:SignFileByLinkHttpPostIn" />
+      <wsdl:output message="tns:SignFileByLinkHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail_TestLoginFailed">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ký nhiều file trong hệ thống quản lý file, sử dụng Thread. Ghi log ký file. Trả về kết quả từng file vào file text</wsdl:documentation>
+      <wsdl:input name="_x0032_.ReturnDataTableUsingThread_TextLog9899879" message="tns:_x0032_.ReturnDataTableUsingThread_TextLog9899879HttpPostIn" />
+      <wsdl:output name="_x0032_.ReturnDataTableUsingThread_TextLog9899879" message="tns:_x0032_.ReturnDataTableUsingThread_TextLog9899879HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckLoginHSM_TestLoginFailed">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Kiểm tra có đăng nhập được HSM hay không.</wsdl:documentation>
+      <wsdl:input message="tns:CheckLoginHSM_TestLoginFailedHttpPostIn" />
+      <wsdl:output message="tns:CheckLoginHSM_TestLoginFailedHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CAServiceSoap" type="tns:CAServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://ca-nldc.vn/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUnitInCASystem_Now">
+      <soap:operation soapAction="http://ca-nldc.vn/CheckUnitInCASystem_Now" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateFromProgUser_Now">
+      <soap:operation soapAction="http://ca-nldc.vn/GetCertificateFromProgUser_Now" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCertificateInCA_Now">
+      <soap:operation soapAction="http://ca-nldc.vn/ValidateCertificateInCA_Now" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCertificateInCA_Date">
+      <soap:operation soapAction="http://ca-nldc.vn/ValidateCertificateInCA_Date" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCertificateInTTD_Now">
+      <soap:operation soapAction="http://ca-nldc.vn/ValidateCertificateInTTD_Now" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAndGetFileInfo">
+      <soap:operation soapAction="http://ca-nldc.vn/CreateAndGetFileInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileInfo">
+      <soap:operation soapAction="http://ca-nldc.vn/GetFileInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileStatusForSign">
+      <soap:operation soapAction="http://ca-nldc.vn/GetFileStatusForSign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFileStatus_WithHash">
+      <soap:operation soapAction="http://ca-nldc.vn/SetFileStatus_WithHash" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFileStatus">
+      <soap:operation soapAction="http://ca-nldc.vn/SetFileStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogFileStatus">
+      <soap:operation soapAction="http://ca-nldc.vn/LogFileStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogFileSignature">
+      <soap:operation soapAction="http://ca-nldc.vn/LogFileSignature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFL_File_SelectFileID">
+      <soap:operation soapAction="http://ca-nldc.vn/GetFL_File_SelectFileID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FL_FileRelation_Insert">
+      <soap:operation soapAction="http://ca-nldc.vn/FL_FileRelation_Insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserCerticate">
+      <soap:operation soapAction="http://ca-nldc.vn/GetUserCerticate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail5">
+      <soap:operation soapAction="http://ca-nldc.vn/1.ReturnDataTableUsingThread_TextLog" style="document" />
+      <wsdl:input name="_x0031_.ReturnDataTableUsingThread_TextLog">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_x0031_.ReturnDataTableUsingThread_TextLog">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail5">
+      <soap:operation soapAction="http://ca-nldc.vn/2.ReturnDataTableUsingThread_TextLog" style="document" />
+      <wsdl:input name="_x0032_.ReturnDataTableUsingThread_TextLog">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_x0032_.ReturnDataTableUsingThread_TextLog">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail5">
+      <soap:operation soapAction="http://ca-nldc.vn/1.ReturnDataTableUsingThreadWithTimeout_TextLog" style="document" />
+      <wsdl:input name="_x0031_.ReturnDataTableUsingThreadWithTimeout_TextLog">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_x0031_.ReturnDataTableUsingThreadWithTimeout_TextLog">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail5">
+      <soap:operation soapAction="http://ca-nldc.vn/2.ReturnDataTableUsingThreadWithTimeout_TextLog" style="document" />
+      <wsdl:input name="_x0032_.ReturnDataTableUsingThreadWithTimeout_TextLog">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_x0032_.ReturnDataTableUsingThreadWithTimeout_TextLog">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FL_File_SelectForAllowSign_Array">
+      <soap:operation soapAction="http://ca-nldc.vn/FL_File_SelectForAllowSign_Array" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FL_File_SelectForSaveSign">
+      <soap:operation soapAction="http://ca-nldc.vn/FL_File_SelectForSaveSign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FL_File_UpdateForLogSign">
+      <soap:operation soapAction="http://ca-nldc.vn/FL_File_UpdateForLogSign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignFileByLink">
+      <soap:operation soapAction="http://ca-nldc.vn/SignFileByLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail_TestLoginFailed">
+      <soap:operation soapAction="http://ca-nldc.vn/2.ReturnDataTableUsingThread_TextLog9899879" style="document" />
+      <wsdl:input name="_x0032_.ReturnDataTableUsingThread_TextLog9899879">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_x0032_.ReturnDataTableUsingThread_TextLog9899879">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail_NoApp">
+      <soap:operation soapAction="http://ca-nldc.vn/4.SignFilesByID_ReturnDetail_NoApp" style="document" />
+      <wsdl:input name="_x0034_.SignFilesByID_ReturnDetail_NoApp">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_x0034_.SignFilesByID_ReturnDetail_NoApp">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckLoginHSM_TestLoginFailed">
+      <soap:operation soapAction="http://ca-nldc.vn/CheckLoginHSM_TestLoginFailed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestRef">
+      <soap:operation soapAction="http://ca-nldc.vn/TestRef" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CAServiceSoap12" type="tns:CAServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://ca-nldc.vn/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUnitInCASystem_Now">
+      <soap12:operation soapAction="http://ca-nldc.vn/CheckUnitInCASystem_Now" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateFromProgUser_Now">
+      <soap12:operation soapAction="http://ca-nldc.vn/GetCertificateFromProgUser_Now" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCertificateInCA_Now">
+      <soap12:operation soapAction="http://ca-nldc.vn/ValidateCertificateInCA_Now" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCertificateInCA_Date">
+      <soap12:operation soapAction="http://ca-nldc.vn/ValidateCertificateInCA_Date" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateCertificateInTTD_Now">
+      <soap12:operation soapAction="http://ca-nldc.vn/ValidateCertificateInTTD_Now" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAndGetFileInfo">
+      <soap12:operation soapAction="http://ca-nldc.vn/CreateAndGetFileInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileInfo">
+      <soap12:operation soapAction="http://ca-nldc.vn/GetFileInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileStatusForSign">
+      <soap12:operation soapAction="http://ca-nldc.vn/GetFileStatusForSign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFileStatus_WithHash">
+      <soap12:operation soapAction="http://ca-nldc.vn/SetFileStatus_WithHash" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFileStatus">
+      <soap12:operation soapAction="http://ca-nldc.vn/SetFileStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogFileStatus">
+      <soap12:operation soapAction="http://ca-nldc.vn/LogFileStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogFileSignature">
+      <soap12:operation soapAction="http://ca-nldc.vn/LogFileSignature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFL_File_SelectFileID">
+      <soap12:operation soapAction="http://ca-nldc.vn/GetFL_File_SelectFileID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FL_FileRelation_Insert">
+      <soap12:operation soapAction="http://ca-nldc.vn/FL_FileRelation_Insert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserCerticate">
+      <soap12:operation soapAction="http://ca-nldc.vn/GetUserCerticate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail5">
+      <soap12:operation soapAction="http://ca-nldc.vn/1.ReturnDataTableUsingThread_TextLog" style="document" />
+      <wsdl:input name="_x0031_.ReturnDataTableUsingThread_TextLog">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_x0031_.ReturnDataTableUsingThread_TextLog">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail5">
+      <soap12:operation soapAction="http://ca-nldc.vn/2.ReturnDataTableUsingThread_TextLog" style="document" />
+      <wsdl:input name="_x0032_.ReturnDataTableUsingThread_TextLog">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_x0032_.ReturnDataTableUsingThread_TextLog">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail5">
+      <soap12:operation soapAction="http://ca-nldc.vn/1.ReturnDataTableUsingThreadWithTimeout_TextLog" style="document" />
+      <wsdl:input name="_x0031_.ReturnDataTableUsingThreadWithTimeout_TextLog">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_x0031_.ReturnDataTableUsingThreadWithTimeout_TextLog">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail5">
+      <soap12:operation soapAction="http://ca-nldc.vn/2.ReturnDataTableUsingThreadWithTimeout_TextLog" style="document" />
+      <wsdl:input name="_x0032_.ReturnDataTableUsingThreadWithTimeout_TextLog">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_x0032_.ReturnDataTableUsingThreadWithTimeout_TextLog">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FL_File_SelectForAllowSign_Array">
+      <soap12:operation soapAction="http://ca-nldc.vn/FL_File_SelectForAllowSign_Array" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FL_File_SelectForSaveSign">
+      <soap12:operation soapAction="http://ca-nldc.vn/FL_File_SelectForSaveSign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FL_File_UpdateForLogSign">
+      <soap12:operation soapAction="http://ca-nldc.vn/FL_File_UpdateForLogSign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignFileByLink">
+      <soap12:operation soapAction="http://ca-nldc.vn/SignFileByLink" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail_TestLoginFailed">
+      <soap12:operation soapAction="http://ca-nldc.vn/2.ReturnDataTableUsingThread_TextLog9899879" style="document" />
+      <wsdl:input name="_x0032_.ReturnDataTableUsingThread_TextLog9899879">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_x0032_.ReturnDataTableUsingThread_TextLog9899879">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail_NoApp">
+      <soap12:operation soapAction="http://ca-nldc.vn/4.SignFilesByID_ReturnDetail_NoApp" style="document" />
+      <wsdl:input name="_x0034_.SignFilesByID_ReturnDetail_NoApp">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_x0034_.SignFilesByID_ReturnDetail_NoApp">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckLoginHSM_TestLoginFailed">
+      <soap12:operation soapAction="http://ca-nldc.vn/CheckLoginHSM_TestLoginFailed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestRef">
+      <soap12:operation soapAction="http://ca-nldc.vn/TestRef" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CAServiceHttpGet" type="tns:CAServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUnitInCASystem_Now">
+      <http:operation location="/CheckUnitInCASystem_Now" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateFromProgUser_Now">
+      <http:operation location="/GetCertificateFromProgUser_Now" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAndGetFileInfo">
+      <http:operation location="/CreateAndGetFileInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileInfo">
+      <http:operation location="/GetFileInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileStatusForSign">
+      <http:operation location="/GetFileStatusForSign" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFileStatus_WithHash">
+      <http:operation location="/SetFileStatus_WithHash" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFileStatus">
+      <http:operation location="/SetFileStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogFileStatus">
+      <http:operation location="/LogFileStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogFileSignature">
+      <http:operation location="/LogFileSignature" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFL_File_SelectFileID">
+      <http:operation location="/GetFL_File_SelectFileID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FL_FileRelation_Insert">
+      <http:operation location="/FL_FileRelation_Insert" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserCerticate">
+      <http:operation location="/GetUserCerticate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FL_File_SelectForSaveSign">
+      <http:operation location="/FL_File_SelectForSaveSign" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FL_File_UpdateForLogSign">
+      <http:operation location="/FL_File_UpdateForLogSign" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignFileByLink">
+      <http:operation location="/SignFileByLink" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail_TestLoginFailed">
+      <http:operation location="/2.ReturnDataTableUsingThread_TextLog9899879" />
+      <wsdl:input name="_x0032_.ReturnDataTableUsingThread_TextLog9899879">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="_x0032_.ReturnDataTableUsingThread_TextLog9899879">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckLoginHSM_TestLoginFailed">
+      <http:operation location="/CheckLoginHSM_TestLoginFailed" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CAServiceHttpPost" type="tns:CAServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUnitInCASystem_Now">
+      <http:operation location="/CheckUnitInCASystem_Now" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificateFromProgUser_Now">
+      <http:operation location="/GetCertificateFromProgUser_Now" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAndGetFileInfo">
+      <http:operation location="/CreateAndGetFileInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileInfo">
+      <http:operation location="/GetFileInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileStatusForSign">
+      <http:operation location="/GetFileStatusForSign" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFileStatus_WithHash">
+      <http:operation location="/SetFileStatus_WithHash" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFileStatus">
+      <http:operation location="/SetFileStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogFileStatus">
+      <http:operation location="/LogFileStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogFileSignature">
+      <http:operation location="/LogFileSignature" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFL_File_SelectFileID">
+      <http:operation location="/GetFL_File_SelectFileID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FL_FileRelation_Insert">
+      <http:operation location="/FL_FileRelation_Insert" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserCerticate">
+      <http:operation location="/GetUserCerticate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FL_File_SelectForSaveSign">
+      <http:operation location="/FL_File_SelectForSaveSign" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FL_File_UpdateForLogSign">
+      <http:operation location="/FL_File_UpdateForLogSign" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignFileByLink">
+      <http:operation location="/SignFileByLink" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignFilesByID_ReturnDetail_TestLoginFailed">
+      <http:operation location="/2.ReturnDataTableUsingThread_TextLog9899879" />
+      <wsdl:input name="_x0032_.ReturnDataTableUsingThread_TextLog9899879">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="_x0032_.ReturnDataTableUsingThread_TextLog9899879">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckLoginHSM_TestLoginFailed">
+      <http:operation location="/CheckLoginHSM_TestLoginFailed" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CAService">
+    <wsdl:port name="CAServiceSoap" binding="tns:CAServiceSoap">
+      <soap:address location="http://10.8.32.100:8081/CAService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CAServiceSoap12" binding="tns:CAServiceSoap12">
+      <soap12:address location="http://10.8.32.100:8081/CAService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CAServiceHttpGet" binding="tns:CAServiceHttpGet">
+      <http:address location="http://10.8.32.100:8081/CAService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CAServiceHttpPost" binding="tns:CAServiceHttpPost">
+      <http:address location="http://10.8.32.100:8081/CAService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

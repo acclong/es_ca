@@ -1,0 +1,14 @@
+eclipse.preferences.version=1
+encoding//src/com/vnpt/VnptTokenApplet.java=UTF-8
+encoding//src/com/vnpt/aDllLoadPrivilege.java=UTF-8
+encoding//src/com/vnpt/a_pac/aIFileSignManager.java=UTF-8
+encoding//src/com/vnpt/a_pac/bIDataSignManager.java=UTF-8
+encoding//src/com/vnpt/a_pac/cLoadCertificateDialog.java=UTF-8
+encoding//src/com/vnpt/a_pac/jLoadTokenDialog.java=UTF-8
+encoding//src/com/vnpt/bDocxUrlSignPrivilege.java=UTF-8
+encoding//src/com/vnpt/b_pac/dSigner.java=UTF-8
+encoding//src/com/vnpt/common/aBase64.java=UTF-8
+encoding//src/com/vnpt/nPdfFileSignPrivilege.java=UTF-8
+encoding//src/com/vnpt/oPdfFileSignManager.java=UTF-8
+encoding//src/com/vnpt/pPdfUrlSignPrivilege.java=UTF-8
+encoding//src/com/vnpt/rXmlUrlSignPrivilege.java=UTF-8

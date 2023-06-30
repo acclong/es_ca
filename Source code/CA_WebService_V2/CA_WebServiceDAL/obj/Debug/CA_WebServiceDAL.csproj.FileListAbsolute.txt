@@ -1,0 +1,5 @@
+E:\ES_CAVCGM\Source code\CA_WebService_V2\CA_WebServiceDAL\bin\Debug\ES.CA_WebServiceDAL.dll
+E:\ES_CAVCGM\Source code\CA_WebService_V2\CA_WebServiceDAL\bin\Debug\ES.CA_WebServiceDAL.pdb
+E:\ES_CAVCGM\Source code\CA_WebService_V2\CA_WebServiceDAL\obj\Debug\CA_WebServiceDAL.csprojResolveAssemblyReference.cache
+E:\ES_CAVCGM\Source code\CA_WebService_V2\CA_WebServiceDAL\obj\Debug\ES.CA_WebServiceDAL.dll
+E:\ES_CAVCGM\Source code\CA_WebService_V2\CA_WebServiceDAL\obj\Debug\ES.CA_WebServiceDAL.pdb

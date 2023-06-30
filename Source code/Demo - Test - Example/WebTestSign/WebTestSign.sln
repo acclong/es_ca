@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTestSign", "WebTestSign\WebTestSign.csproj", "{BBEAFE58-0792-4BC3-971E-2548C8E4AA30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "esSignOnWeb", "esSignOnWeb\esSignOnWeb.csproj", "{C0D2064F-D311-4030-A8E4-B6668F8A4E33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTestApplet", "WebTestApplet\WebTestApplet.csproj", "{1621D2F0-CE10-4FC5-BE62-F1EE69887FCA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		DVD-5|Any CPU = DVD-5|Any CPU
+		Release|Any CPU = Release|Any CPU
+		SingleImage|Any CPU = SingleImage|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBEAFE58-0792-4BC3-971E-2548C8E4AA30}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{BBEAFE58-0792-4BC3-971E-2548C8E4AA30}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{BBEAFE58-0792-4BC3-971E-2548C8E4AA30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBEAFE58-0792-4BC3-971E-2548C8E4AA30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBEAFE58-0792-4BC3-971E-2548C8E4AA30}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBEAFE58-0792-4BC3-971E-2548C8E4AA30}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{BBEAFE58-0792-4BC3-971E-2548C8E4AA30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBEAFE58-0792-4BC3-971E-2548C8E4AA30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBEAFE58-0792-4BC3-971E-2548C8E4AA30}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{BBEAFE58-0792-4BC3-971E-2548C8E4AA30}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{C0D2064F-D311-4030-A8E4-B6668F8A4E33}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{C0D2064F-D311-4030-A8E4-B6668F8A4E33}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{C0D2064F-D311-4030-A8E4-B6668F8A4E33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0D2064F-D311-4030-A8E4-B6668F8A4E33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0D2064F-D311-4030-A8E4-B6668F8A4E33}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0D2064F-D311-4030-A8E4-B6668F8A4E33}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{C0D2064F-D311-4030-A8E4-B6668F8A4E33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0D2064F-D311-4030-A8E4-B6668F8A4E33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0D2064F-D311-4030-A8E4-B6668F8A4E33}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{C0D2064F-D311-4030-A8E4-B6668F8A4E33}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{1621D2F0-CE10-4FC5-BE62-F1EE69887FCA}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{1621D2F0-CE10-4FC5-BE62-F1EE69887FCA}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{1621D2F0-CE10-4FC5-BE62-F1EE69887FCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1621D2F0-CE10-4FC5-BE62-F1EE69887FCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1621D2F0-CE10-4FC5-BE62-F1EE69887FCA}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{1621D2F0-CE10-4FC5-BE62-F1EE69887FCA}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{1621D2F0-CE10-4FC5-BE62-F1EE69887FCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1621D2F0-CE10-4FC5-BE62-F1EE69887FCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1621D2F0-CE10-4FC5-BE62-F1EE69887FCA}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{1621D2F0-CE10-4FC5-BE62-F1EE69887FCA}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

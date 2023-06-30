@@ -1,0 +1,5 @@
+E:\ES_CAVCGM\Source code\esDigitalSignatureDLL_V2\esDigitalSignature\bin\Debug\esDigitalSignature.dll
+E:\ES_CAVCGM\Source code\esDigitalSignatureDLL_V2\esDigitalSignature\bin\Debug\esDigitalSignature.pdb
+E:\ES_CAVCGM\Source code\esDigitalSignatureDLL_V2\esDigitalSignature\obj\Debug\esDigitalSignature.csproj.CoreCompileInputs.cache
+E:\ES_CAVCGM\Source code\esDigitalSignatureDLL_V2\esDigitalSignature\obj\Debug\esDigitalSignature.dll
+E:\ES_CAVCGM\Source code\esDigitalSignatureDLL_V2\esDigitalSignature\obj\Debug\esDigitalSignature.pdb

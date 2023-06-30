@@ -1,0 +1,11 @@
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementDAL\bin\Debug\ES.CA_ManagementDAL.dll
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementDAL\bin\Debug\ES.CA_ManagementDAL.pdb
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementDAL\bin\Debug\esDigitalSignature.dll
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementDAL\bin\Debug\ESLogin.dll
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementDAL\bin\Debug\C1.Win.C1FlexGrid.4.dll
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementDAL\bin\Debug\ESLogin.pdb
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementDAL\bin\Debug\esDigitalSignature.xml
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementDAL\bin\Debug\C1.Win.C1FlexGrid.4.xml
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementDAL\obj\Debug\CA_ManagementDAL.csprojResolveAssemblyReference.cache
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementDAL\obj\Debug\ES.CA_ManagementDAL.dll
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementDAL\obj\Debug\ES.CA_ManagementDAL.pdb

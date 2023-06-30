@@ -1,0 +1,12 @@
+{
+  "name": "firefox_signex",
+  "title": "Sign NLDC",
+  "id": "jid1-6w4ad5Nfsf8LRw",
+  "description": "Hỗ trợ chữ ký số trên website của NLDC",
+  "author": "E-Solutions",
+  "license": "MPL 2.0",
+  "version": "0.1"
+  "permissions": {
+		"cross-domain-content": ["http://localhost:4344/default.aspx"]
+	}
+}

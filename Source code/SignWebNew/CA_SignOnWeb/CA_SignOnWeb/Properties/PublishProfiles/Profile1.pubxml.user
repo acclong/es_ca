@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\Publish\CAService</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/ES.CA_WebService.dll">
+      <publishTime>04/09/2016 10:49:14</publishTime>
+    </File>
+    <File Include="bin/ES.CA_WebServiceBUS.dll">
+      <publishTime>04/09/2016 10:00:22</publishTime>
+    </File>
+    <File Include="bin/ES.CA_WebServiceDAL.dll">
+      <publishTime>04/09/2016 10:00:22</publishTime>
+    </File>
+    <File Include="bin/esDigitalSignature.dll">
+      <publishTime>02/19/2016 09:28:09</publishTime>
+    </File>
+    <File Include="CAService.asmx">
+      <publishTime>02/19/2016 09:18:31</publishTime>
+    </File>
+    <File Include="CA_App/App.config">
+      <publishTime>04/05/2016 11:35:19</publishTime>
+    </File>
+    <File Include="Files/demo.pdf">
+      <publishTime>02/19/2016 09:18:35</publishTime>
+    </File>
+    <File Include="Files/Ninhtq_Cert.crt">
+      <publishTime>02/19/2016 09:18:34</publishTime>
+    </File>
+    <File Include="Files/ThongBaoThayDoiOMS.xlsx">
+      <publishTime>02/19/2016 09:18:34</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>04/06/2016 08:50:19</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

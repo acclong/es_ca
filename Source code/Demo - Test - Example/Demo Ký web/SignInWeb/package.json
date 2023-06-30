@@ -1,0 +1,12 @@
+{
+	"name": "signinweb",
+	"title": "SignInWeb",
+	"id": "jid1-zHcxOCwzR07UCw",
+	"description": "Sign certificate to file excel",
+	"author": "Ninhtq",
+	"license": "MPL 2.0",
+	"version": "0.1",
+	"permissions": {
+		"cross-domain-content": ["http://localhost:4344/default.aspx"]
+	}
+}

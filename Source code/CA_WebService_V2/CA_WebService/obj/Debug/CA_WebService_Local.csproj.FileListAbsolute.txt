@@ -1,0 +1,12 @@
+E:\ES_CAVCGM\Source code\CA_WebService_V2\CA_WebService\bin\ES.CA_WebService.dll.config
+E:\ES_CAVCGM\Source code\CA_WebService_V2\CA_WebService\bin\ES.CA_WebService.dll
+E:\ES_CAVCGM\Source code\CA_WebService_V2\CA_WebService\bin\ES.CA_WebService.pdb
+E:\ES_CAVCGM\Source code\CA_WebService_V2\CA_WebService\bin\ES.CA_WebServiceBUS.dll
+E:\ES_CAVCGM\Source code\CA_WebService_V2\CA_WebService\bin\ES.CA_WebServiceDAL.dll
+E:\ES_CAVCGM\Source code\CA_WebService_V2\CA_WebService\bin\esDigitalSignature.dll
+E:\ES_CAVCGM\Source code\CA_WebService_V2\CA_WebService\bin\ES.CA_WebServiceBUS.pdb
+E:\ES_CAVCGM\Source code\CA_WebService_V2\CA_WebService\bin\ES.CA_WebServiceDAL.pdb
+E:\ES_CAVCGM\Source code\CA_WebService_V2\CA_WebService\bin\esDigitalSignature.xml
+E:\ES_CAVCGM\Source code\CA_WebService_V2\CA_WebService\obj\Debug\CA_WebService_Local.csprojResolveAssemblyReference.cache
+E:\ES_CAVCGM\Source code\CA_WebService_V2\CA_WebService\obj\Debug\ES.CA_WebService.dll
+E:\ES_CAVCGM\Source code\CA_WebService_V2\CA_WebService\obj\Debug\ES.CA_WebService.pdb

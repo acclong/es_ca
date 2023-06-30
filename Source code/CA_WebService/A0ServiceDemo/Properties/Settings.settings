@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="A0ServiceDemo.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="A0ServiceDemo_A0SignatureService_CAService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.8.32.100:8081/CAService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

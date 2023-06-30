@@ -1,0 +1,218 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebTestApplet.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+    
+    <%--=== Thêm đoạn code này vào để ký applet ===--%>
+    <script type="text/javascript" src="vnptSignatureUtils.js"></script>
+    <script type="text/javascript" src="vnptSignatureFunctions.js"></script>
+    <%--=== Thêm đoạn code này vào để ký applet ===--%>
+
+    <%--<script type="text/javascript">
+        function fillClientTime() {
+            var myHidden = document.getElementsByClassName("essign_txtClientTime")[0];
+            var now = new Date();
+            myHidden.value = now.toUTCString();
+            return false;
+        }
+
+        function loadInfo() {
+            try {
+                vnptToken.applet = document.getElementById("vnptTokenApplet");
+                var xmlList = vnptToken.applet.loadCertificateInfo();
+                if (xmlList != "") {
+                    var xmlDoc = xml2json.parser(xmlList);
+                    //document.getElementById("serialNumber").value = xmlDoc.certificate.serialnumber;
+                    //document.getElementById("base64").value = xmlDoc.certificate.base64;
+                    alert(xmlDoc.certificate.serialnumber);
+                }
+            }
+            catch (err) {
+                alert(err);
+            }
+        }
+
+        function signDocxBase64(inputs) {
+            try {
+                var xmlList = vnptToken.applet.loadCertificateInfo();
+                if (xmlList == "")
+                    throw "The action was cancelled by the user.";
+
+                var serialnumber = xml2json.parser(xmlList).certificate.serialnumber;
+                var arrBase64 = inputs.split(";");
+
+                var outputs = "";
+                for (var i = 0; i < arrBase64.length; ++i) {
+                    var output = vnptToken.applet.signDocxBase64(serialnumber, arrBase64[i]);
+                    if (output == "")
+                        throw "The action was cancelled by the user.";
+                    outputs += output + ";";
+                }
+
+                document.getElementsByClassName("essign_txtBase64")[0].value = outputs;
+                document.getElementsByClassName("essign_btnUpload")[0].click();
+            }
+            catch (err) {
+                alert(err);
+                document.getElementsByClassName("essign_btnUpload")[0].click();
+            }
+        }
+
+        function signPdfBase64(inputs) {
+            try {
+                var xmlList = vnptToken.applet.loadCertificateInfo();
+                if (xmlList == "")
+                    throw "The action was cancelled by the user.";
+
+                var serialnumber = xml2json.parser(xmlList).certificate.serialnumber;
+                var arrBase64 = inputs.split(";");
+
+                var outputs = "";
+                for (var i = 0; i < arrBase64.length; ++i) {
+                    var output = vnptToken.applet.signPdfBase64(serialnumber, arrBase64[i], 0, 0, 200, 50);
+                    if (output == "")
+                        throw "The action was cancelled by the user.";
+                    outputs += output + ";";
+                }
+
+                document.getElementsByClassName("essign_txtBase64")[0].value = outputs;
+                document.getElementsByClassName("essign_btnUpload")[0].click();
+            }
+            catch (err) {
+                alert(err);
+                document.getElementsByClassName("essign_btnUpload")[0].click();
+            }
+        }
+
+        function signXmlBase64(inputs) {
+            try {
+                var xmlList = vnptToken.applet.loadCertificateInfo();
+                if (xmlList == "")
+                    throw "The action was cancelled by the user.";
+
+                var serialnumber = xml2json.parser(xmlList).certificate.serialnumber;
+                var arrBase64 = inputs.split(";");
+
+                var outputs = "";
+                for (var i = 0; i < arrBase64.length; ++i) {
+                    var output = vnptToken.applet.signXml(serialnumber, arrBase64[i]);
+                    if (output == "")
+                        throw "The action was cancelled by the user.";
+                    outputs += output + ";";
+                }
+
+                document.getElementsByClassName("essign_txtBase64")[0].value = outputs;
+                document.getElementsByClassName("essign_btnUpload")[0].click();
+            }
+            catch (err) {
+                alert(err);
+                document.getElementsByClassName("essign_btnUpload")[0].click();
+            }
+        }
+
+        function performAppletSign(timeout, fileExt) {
+            vnptToken.applet = document.getElementById("vnptTokenApplet");
+            var inputs = document.getElementsByClassName("essign_txtBase64")[0].value;
+            document.getElementsByClassName("essign_txtBase64")[0].value = "";
+
+            if (checkAppletReady(timeout)) {
+                if (fileExt == '.xlsx' || fileExt == '.docx')
+                    signDocxBase64(inputs);
+                else if (fileExt == '.pdf')
+                    signPdfBase64(inputs);
+                else if (fileExt == '.xml' || fileExt == '.bid')
+                    signXmlBase64(inputs);
+                else {
+                    alert('File extension is not supported.');
+                    document.getElementsByClassName("essign_btnUpload")[0].click();
+                }
+            }
+            else {
+                alert('Applet failed to load.');
+                document.getElementsByClassName("essign_btnUpload")[0].click();
+            }
+        }
+
+        function checkAppletReady(timeout) {
+            try {
+                var b = vnptToken.applet.isActive();
+                return b;
+            }
+            catch (err) {
+                if (timeout > 0)
+                    setTimeout(function () { checkAppletReady(--timeout); }, 1000);
+                else
+                    return false;
+            }
+        }
+    </script>--%>
+
+    <link href="~/Content/Site.css" rel="stylesheet" /> 
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <asp:PlaceHolder runat="server">        
+        <script src="<%: ResolveUrl("~/Scripts/modernizr-2.6.2.js") %>"></script>
+    </asp:PlaceHolder>
+    <meta name="viewport" content="width=device-width" />
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+</head>
+<body>
+    <form runat="server">
+    <asp:ScriptManager runat="server">
+        <%--<Scripts>
+            <asp:ScriptReference Name="jquery" />
+            <asp:ScriptReference Name="jquery.ui.combined" />
+        </Scripts>--%>
+    </asp:ScriptManager>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title"><a runat="server" href="~/">your logo here</a></p>
+            </div>
+            <div class="float-right">
+                <section id="login">
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul>
+                                <li><a id="registerLink" runat="server" href="~/Account/Register">Register</a></li>
+                                <li><a id="loginLink" runat="server" href="~/Account/Login">Log in</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <p>
+                                Hello, <a runat="server" class="username" href="~/Account/Manage" title="Manage your account">
+                                    <asp:LoginName runat="server" CssClass="username" />
+                                </a>!
+                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
+                            </p>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </section>
+                <nav>
+                    <ul id="menu">
+                        <li><a runat="server" href="~/">Home</a></li>
+                        <li><a runat="server" href="~/About">About</a></li>
+                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+        <section class="content-wrapper main-content clear-fix">
+            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+            </div>
+        </div>
+    </footer>
+    </form>
+</body>
+</html>

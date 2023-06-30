@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://localhost:8164/CA_SignOnWeb.asmx?wsdl" docRef="http://localhost:8164/CA_SignOnWeb.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://localhost:8164/CA_SignOnWeb.asmx" xmlns:q1="http://ca-nldc.vn/" binding="q1:CA_SignOnWebSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://localhost:8164/CA_SignOnWeb.asmx" xmlns:q2="http://ca-nldc.vn/" binding="q2:CA_SignOnWebSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

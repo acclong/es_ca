@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+
+  "name": "SignWeb NLDC",
+  "description": "Hỗ trợ chữ ký số trên website của NLDC",
+  "version": "1.0",
+  "author": "E-Solutions",
+  "minimum_chrome_version": "23",
+  
+  "background": {
+    "scripts": ["main.js"]
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "http://*/*"],
+      "js": ["contentListenClick.js"]
+    }
+  ],
+
+  "permissions": [
+    "activeTab",
+	"http://*/*",
+	"https://*/*",
+	"management"
+  ]
+}

@@ -1,0 +1,2089 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>esDigitalSignature</name>
+    </assembly>
+    <members>
+        <member name="T:esDigitalSignature.Library.SignFileResult">
+            <summary>
+            Kết quả ký file. Dùng cho web service trả về.
+            </summary>
+        </member>
+        <member name="P:esDigitalSignature.Library.SignFileResult.FileID">
+            <summary>
+            FileID
+            </summary>
+        </member>
+        <member name="P:esDigitalSignature.Library.SignFileResult.Result">
+            <summary>
+            Kết quả
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.Library.CertificateStatus_CA">
+            <summary>
+            Trạng thái chứng thư convert từ X509ChainStatus. Dùng cho web service trả về.
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CertificateStatus_CA.Status">
+            <summary>
+            Convert từ System.Security.Cryptography.X509Certificates.X509ChainStatusFlags
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CertificateStatus_CA.StatusInformation">
+            <summary>
+            Specifies a description of the System.Security.Cryptography.X509Certificates.X509Chain.ChainStatus
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.Library.CertificateStatus_TTD">
+            <summary>
+            Trạng thái chứng thư trong hệ thống Thị trường điện. Dùng cho web service trả về.
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CertificateStatus_TTD.Status">
+            <summary>
+            Convert từ System.Security.Cryptography.X509Certificates.X509ChainStatusFlags
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CertificateStatus_TTD.StatusInformation">
+            <summary>
+            Specifies a description of the System.Security.Cryptography.X509Certificates.X509Chain.ChainStatus
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.Library.FileInfoCA">
+            <summary>
+            Thông tin văn bản từ CSDL. Dùng cho web service trả về.
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileInfoCA.FileID">
+            <summary>
+            ID văn bản trong csdl
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileInfoCA.FileNumber">
+            <summary>
+            Số hiệu văn bản
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileInfoCA.FilePath">
+            <summary>
+            Đường dẫn văn bản
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileInfoCA.FileTypeID">
+            <summary>
+            Mã loại văn bản
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileInfoCA.MaDV">
+            <summary>
+            Mã đơn vị mà nội dung văn bản nhắm đến
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileInfoCA.FileDate">
+            <summary>
+            Ngày đầu kỳ mà nội dung văn bản nhắm đến. Ví dụ: bảng kê tháng thì lấy ngày đầu tháng.
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileInfoCA.Status">
+            <summary>
+            Trạng thái văn bản. 0: khởi tạo; 1: lưu file; 2: đang ký; 4: đã bị thay thế.
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileInfoCA.Description">
+            <summary>
+            Mô tả
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.Library.VCGMChainStatus">
+            <summary>
+            Trạng thái chứng thư trong hệ thống Thị trường điện
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.VCGMChainStatus.Status">
+            <summary>
+            Trạng thái của chuỗi thông tin chứng thư lấy từ CSDL
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.VCGMChainStatus.StatusInformation">
+            <summary>
+            Mô tả chi tiết
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.Library.HSMObjectTypeDB">
+            <summary>
+            Kiểu đối tượng HSM trong DB
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.HSMObjectTypeDB.CERTIFICATE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.HSMObjectTypeDB.PUBLIC_KEY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.HSMObjectTypeDB.PRIVATE_KEY">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.HSMObjectTypeDB.CERTIFICATE_REQUEST">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.Library.VCGMChainStatusFlags">
+            <summary>
+            Kết quả xác thực chứng thư số trong hệ thống TTĐ
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.VCGMChainStatusFlags.NoError">
+            <summary>
+            OK
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.VCGMChainStatusFlags.CertificateNotFound">
+            <summary>
+            Không tìm thấy chứng thư
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.VCGMChainStatusFlags.CertificateNotValid">
+            <summary>
+            Trạng thái chứng thư không có hiệu lực
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.VCGMChainStatusFlags.CertificateNotIssue">
+            <summary>
+            Chứng thư chưa được cấp phát
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.VCGMChainStatusFlags.CertificateExpired">
+            <summary>
+            Chứng thư hết hạn
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.VCGMChainStatusFlags.UserNotFound">
+            <summary>
+            Không tìm thấy người dùng
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.VCGMChainStatusFlags.UserNotValid">
+            <summary>
+            Trạng thái người dùng không có hiệu lực
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.VCGMChainStatusFlags.UserNotIssue">
+            <summary>
+            Người dùng chưa được cấp phát
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.VCGMChainStatusFlags.UserExpired">
+            <summary>
+            NGười dùng hết hạn
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.VCGMChainStatusFlags.UserProgLinkNotFound">
+            <summary>
+            Không tìm thấy liên kết người dùng - chương trình
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.VCGMChainStatusFlags.UserProgNotIssue">
+            <summary>
+            Liên kết người dùng - chương trình chưa được cấp phát
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.VCGMChainStatusFlags.UserProgExpired">
+            <summary>
+            Liên kết người dùng - chương trình hết hạn
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.VCGMChainStatusFlags.StatusUnknown">
+            <summary>
+            Không thể kiểm tra trạng thái do có lỗi
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.Library.ProgName">
+            <summary>
+            Tên mã hệ thống được tích hợp
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.ProgName.BiddingServer">
+            <summary>
+            Chào giá server
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.ProgName.TTTT_A0">
+            <summary>
+            Tính toán thanh toán
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.ProgName.WebTTD">
+            <summary>
+            Trang web nội bộ TTĐ
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.ProgName.SMOV">
+            <summary>
+            Trang web smov.vn
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.ProgName.MDMSP">
+            <summary>
+            Phần mềm xử lý số liệu đo đếm
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.ProgName.DIM">
+            <summary>
+            Hệ thống điều độ điện tử DIM
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.Library.UnitTypes">
+            <summary>
+            Loại đơn vị
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.UnitTypes.DieuDo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.UnitTypes.MuaBanDien">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.UnitTypes.DonViPhatDien">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.UnitTypes.NhaMayDien">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.UnitTypes.DienLuc">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.UnitTypes.TruyenTai">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.UnitTypes.GENCO">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.Library.DateType">
+            <summary>
+            Loại thời gian của văn bản
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.DateType.Ngay">
+            <summary>
+            Ngày
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.DateType.Tuan">
+            <summary>
+            Tuần
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.DateType.Thang">
+            <summary>
+            Tháng
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.DateType.Quy">
+            <summary>
+            Quý
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.DateType.Nam">
+            <summary>
+            Năm
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.Library.FileSignatureType">
+            <summary>
+            Loại chữ ký trên văn bản
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignatureType.NLDCKyLap">
+            <summary>
+            NLDC ký lập
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignatureType.NLDCXacNhan">
+            <summary>
+            NLDC xác nhận
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignatureType.EPTCXacNhan">
+            <summary>
+            EPTC xác nhận
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignatureType.DonViXacNhan">
+            <summary>
+            Đơn vị xác nhận
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.Library.FileRelationType">
+            <summary>
+            Loại văn bản liên quan
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileRelationType.VanBanThayThe">
+            <summary>
+            Văn bản thay thế (File1 thay thế File2)
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileRelationType.GiaiQuyetKHNam">
+            <summary>
+            Giải quyết kế hoạch năm (File1 giải quyết File2)
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileRelationType.GiaiQuyetKHThang">
+            <summary>
+            Giải quyết kế hoạch tháng (File1 giải quyết File2)
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileRelationType.GiaiQuyetPCTNguon">
+            <summary>
+            Giải quyết Phiếu công tác nguồn (File1 giải quyết File2)
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileRelationType.GiaiQuyetPTNNguon">
+            <summary>
+            Giải quyết Phiếu thí nghiệm nguồn (File1 giải quyết File2)
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileRelationType.GiaiQuyetPCTLuoi">
+            <summary>
+            Giải quyết Phiếu công tác lưới (File1 giải quyết File2)
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.Library.FileTypes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileTypes.BanChaoNgayToi">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileTypes.BanChaoGioToi">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileTypes.BanChaoMacDinh">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileTypes.BangKeDoanhThuThiTruongNgay">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileTypes.BangKeDoanhThuThiTruongThang">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileTypes.BangKeChenhLechSanLuongThang">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileTypes.XacNhanSuKien">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileTypes.SuKienDIM">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileTypes.SuKienChung">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileTypes.SuKienMucNuocGioiHan">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileTypes.KeHoachNam_DangKy">
+            <summary>
+            SMOV: Đăng ký kế hoạch năm
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileTypes.KeHoachNam_GiaiQuyet">
+            <summary>
+            SMOV: Giải quyết kế hoạch năm
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileTypes.KeHoachThang_DangKy">
+            <summary>
+            SMOV: Đăng ký kế hoạch tháng
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileTypes.KeHoachThang_GiaiQuyet">
+            <summary>
+            SMOV: Giải quyết kế hoạch tháng
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileTypes.PhieuCongTacNguon_DangKy">
+            <summary>
+            SMOV: Phiếu đăng ký công tác nguồn
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileTypes.PhieuCongTacNguon_GiaiQuyet">
+            <summary>
+            SMOV: Phiếu giải quyết công tác nguồn
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileTypes.PhieuThiNghiemNguon_DangKy">
+            <summary>
+            SMOV: Phiếu đăng ký thí nghiệm nguồn
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileTypes.PhieuThiNghiemNguon_GiaiQuyet">
+            <summary>
+            SMOV: Phiếu giải quyết thí nghiệm nguồn
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileTypes.PhieuCongTacLuoi_DangKy">
+            <summary>
+            SMOV: Phiếu đăng ký công tác lưới
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileTypes.PhieuCongTacLuoi_GiaiQuyet">
+            <summary>
+            SMOV: Phiếu giải quyết công tác lưới
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.Library.FileStatus">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileStatus.KhoiTao">
+            <summary>
+            Khởi tạo bản ghi
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileStatus.LuuFile">
+            <summary>
+            Đã lưu file lên server
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileStatus.QuaTrinhKy">
+            <summary>
+            Đang trong quá trình ký file
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileStatus.DaBiThayThe">
+            <summary>
+            Đã bị thay thế bởi một file khác
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.Library.FileSignActions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignActions.AddSignature">
+            <summary>
+            sign
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignActions.RemoveSignature">
+            <summary>
+            Remove sinature
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.Library.FileSignResults">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignResults.FileNotFound">
+            <summary>
+            Không tìm thấy bản ghi file
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignResults.FileNotSaved">
+            <summary>
+            File chưa được lưu hoặc không có hash data
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignResults.FileReplaced">
+            <summary>
+            File đã bị thay thế
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignResults.FileSignedByUnit">
+            <summary>
+            File đã được ký bởi cùng đơn vị và loại chữ ký
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignResults.FileInSignProgress">
+            <summary>
+            File đang trong quá trình ký bởi người khác
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignResults.HashNotMatch">
+            <summary>
+            Chuỗi Hash không khớp
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignResults.InvalidSignature">
+            <summary>
+            Chữ ký không hợp lệ hoặc nội dung file đã bị chỉnh sửa
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignResults.InvalidCertificate_CA">
+            <summary>
+            Chứng thư số không hợp lệ với CA
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignResults.InvalidCertificate_TTD">
+            <summary>
+            Chứng thư số không hợp lệ với TTD
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignResults.SaveTimeOut">
+            <summary>
+            Hết thời gian chờ lưu file
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignResults.NotSigned">
+            <summary>
+            Không có chữ ký
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignResults.UserNotAllow">
+            <summary>
+            Người dùng không có quyền ký
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignResults.HasSignType">
+            <summary>
+            Loại chữ ký đã tồn tại
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignResults.DifferentFileExtensions">
+            <summary>
+            Phiên ký có các loại file khác nhau
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignResults.FileSignFailed">
+            <summary>
+            Quá trình ký file thất bại
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.FileSignResults.Success">
+            <summary>
+            Ký file thành công
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.Library.CACommand">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CACommand.None">
+            <summary>
+            Không thực hiện
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CACommand.SignFileByID">
+            <summary>
+            Ký 01 file trên server
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CACommand.SignFilesByIDs">
+            <summary>
+            Ký nhiều file trên server, tuần tự
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CACommand.CheckLoginHSM">
+            <summary>
+            Kiểm tra đăng nhập slot HSM
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CACommand.SignFilesByID_Thread">
+            <summary>
+            Ký nhiều file trên server, song song
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CACommand.SignFilesByID_LogFile">
+            <summary>
+            Ký nhiều file và ghi log ra file text
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CACommand.ChangePIN">
+            <summary>
+            Đổi PIN slot
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.Library.CAExitCode">
+            <summary>
+            Chi tiết mã lỗi ra đây
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.None">
+            <summary>
+            Giá trị khởi tạo
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.Success">
+            <summary>
+            Thành công
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.Error">
+            <summary>
+            Lỗi
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.UnrecognizedCommand">
+            <summary>
+            Lệnh không tồn tại
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.BadArgument">
+            <summary>
+            Tham số không đúng
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.WS_FileNotFound">
+            <summary>
+            Không tìm thấy file
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.WS_FileNotSaved">
+            <summary>
+            File chưa được lưu
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.WS_CertificateNotFoundOrInvalid">
+            <summary>
+            Không tìm thấy chứng thư ký
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.WS_CertificateMoreThanOne">
+            <summary>
+            Chứng thư ký nhiều hơn MỘT
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.WS_PrivateKeyNotFound">
+            <summary>
+            Không tìm thấy Private Key
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.WS_PrivateKeyMoreThanOne">
+            <summary>
+            Private Key nhiều hơn MỘT
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.WS_FileInSign">
+            <summary>
+            File đang trong quá trình ký bởi người khác
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.WS_FileReplaced">
+            <summary>
+            File đã bị thay thế
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.WS_CertificateInvalidInCA">
+            <summary>
+            Chứng thư số không hợp lệ với nhà cung cấp CA
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.WS_SaveFileTimeOut">
+            <summary>
+            Hết thời gian lưu file
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.WS_Timeout">
+            <summary>
+            Hết thời gian timeout
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.WS_BadFormatOuputConsole">
+            <summary>
+            App Service trả về kết quả output cho từng file sai định dạng
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.WS_UserSlotNotFound">
+            <summary>
+            Không tìm thấy slot của người dùng trong csdl
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.HSM_PinIncorrect">
+            <summary>
+            Sai mã PIN khi đăng nhập HSM
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.HSM_LoginFailed">
+            <summary>
+            Đăng nhập HSM không thành công
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.HSM_DuplicateKey">
+            <summary>
+            Key trong HSM bị trùng
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.HSM_KeyTypeNotSupported">
+            <summary>
+            Loại Key trong HSM không được hỗ trợ
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.HSM_KeyNotFound">
+            <summary>
+            Không tìm thấy Key trong HSM
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.HSM_PinLocked">
+            <summary>
+            PIN bị khóa do nhập sai 3 lần liên tiếp
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.HSM_PinExpired">
+            <summary>
+            PIN hết hiệu lực
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CAExitCode.HSM_PinLenRange">
+            <summary>
+            Độ dài PIN không đúng
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.Library.CA_Variable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Library.CA_Variable.SignFile_Result_Separator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.Common">
+            <summary>
+            Lớp chứa các thành phần dùng chung
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Common.VERSION">
+            <summary>
+            Tên phiên bản ký file để nhúng vào trường SignatureCreator của chữ ký.
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Common.CRYPTOKI">
+            <summary>
+            Đường dẫn thư viện CRYPTOKI để kết nối với HSM.
+            Nếu chỉ có tên dll thì hàm LoadLibrary tìm theo đường dẫn của biến PATH trong Environment Variable.
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Common.ET_PTKC_GENERAL_LIBRARY_MODE">
+            <summary>
+            Biến Environment Variable để thiết lập chế độ làm việc của HSM
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Common.NORMAL">
+            <summary>
+            Chế độ HSM bình thường: nhìn thấy các slot logic
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Common.WLD">
+            <summary>
+            Chế độ HSM cân bằng tải (Work Load Distribution): nhìn thấy các slot ảo được cấu hình trong registry
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Common.HashAlgorithm">
+            <summary>
+            Giải thuật băm. Thuật toán mã hóa RSA sẽ băm dữ liệu thành chuỗi hash trước khi ký
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.Common.TSAServerUri">
+            <summary>
+            Địa chỉ timestamp server
+            </summary>
+        </member>
+        <member name="M:esDigitalSignature.Common.ConvertHexToByte(System.String)">
+            <summary>
+            Tạo mảng byte từ chuỗi ký tự hexa. Hai ký tự hexa tạo thành 1 byte.
+            </summary>
+            <param name="hexString">string to convert to byte array</param>
+            <returns>byte array, in the same left-to-right order as the hexString</returns>
+        </member>
+        <member name="M:esDigitalSignature.Common.ConvertBytesToHex(System.Byte[])">
+            <summary>
+            Tạo chuỗi ký tự Hexa từ mảng byte. Mỗi byte tương đương 2 kí tự hexa.
+            </summary>
+            <param name="bytes">Byte array</param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.Common.ConvertFileToBase64(System.String)">
+            <summary>
+            Tạo chuỗi kí tự Base 64 từ nội dung file.
+            </summary>
+            <param name="filePath">Đường dẫn file</param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.Common.ConvertBase64ToFile(System.String,System.String)">
+            <summary>
+            Tạo file từ chuỗi kí tự Base 64.
+            </summary>
+            <param name="base64">Chuỗi Base 64</param>
+            <param name="filePath">Đường dẫn lưu file</param>
+        </member>
+        <member name="M:esDigitalSignature.Common.ConvertTextToPDF(System.String)">
+            <summary>
+            Tạo file PDF từ chuỗi text.
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.Common.SelectCertificateFromStore(System.String,System.String,System.IntPtr)">
+            <summary>
+            Hiển thị danh sách chứng thư trong Store và lựa chọn. Trả về null nếu hủy chọn.
+            </summary>
+            <param name="title">The title of the dialog box.</param>
+            <param name="message">A descriptive message to guide the user. The message is displayed in the dialog box.</param>
+            <param name="hwndParent">A handle to the parent window to use for the display dialog box. [IntPtr.Zero] for no parent window.</param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.Common.GetCertificateBySerial(System.String)">
+            <summary>
+            Lấy X509 certificate từ Windows Certificate Store theo serial number.
+            </summary>
+            <param name="serialNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.Common.GetCertificateByFile(System.String)">
+            <summary>
+            Lấy X509 certificate từ file định dạng PEM (*.pem, *.cer, *.crt).
+            </summary>
+            <param name="crtPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.Common.ConnectUsbToken(System.Security.Cryptography.X509Certificates.X509Certificate2,System.String)">
+            <summary>
+            Tạo kết nối với USB Token - kết nối được giữ trong certificate
+            </summary>
+            <param name="certificate">Chứng thư số gắn với token</param>
+            <param name="password">Mật khẩu đăng nhập Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.Common.ValidateCertificate(System.Security.Cryptography.X509Certificates.X509Certificate2,System.DateTime,System.Security.Cryptography.X509Certificates.X509ChainStatus@)">
+            <summary>
+            Kiểm tra trạng thái chứng thư số
+            </summary>
+            <param name="certificate">Chứng thư cần kiểm tra</param>
+            <param name="validateTime">Thời điểm cần kiểm tra</param>
+            <param name="certificateStatus">Trả về chi tiết trạng thái</param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.Common.GetCertIDNumber(System.String)">
+            <summary>
+            Lấy số CMND/MST của người dùng chứng thư.
+            </summary>
+            <param name="subject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.Common.Sign(System.Byte[],System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Ký chuỗi dữ liệu và trả về chuỗi chữ ký bằng USB Token.
+            </summary>
+            <param name="message">Dữ liệu cần ký</param>
+            <param name="signer">Chứng thư ký</param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.Common.Sign(System.Byte[],esDigitalSignature.HSMServiceProvider)">
+            <summary>
+            Ký chuỗi dữ liệu và trả về chuỗi chữ ký bằng HSM.
+            </summary>
+            <param name="message">Dữ liệu cần ký</param>
+            <param name="providerHSM">HSMServiceProvider đã đăng nhập và load private key để ký</param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.Common.Verify(System.Byte[],System.Byte[],System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Kiểm tra tính toàn vẹn của chữ ký số bằng cách giải mã chữ ký sử dụng Public Key và so sánh với dữ liệu được ký.
+            </summary>
+            <param name="message">Dữ liệu được ký</param>
+            <param name="signature">Chữ ký để kiểm tra</param>
+            <param name="certificate">Chứng thư ký</param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.Common.Encrypt(System.Byte[],System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Mã hóa chuỗi bằng Public Key (chỉ hỗ trợ RSA)
+            </summary>
+            <param name="message"></param>
+            <param name="certificate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.Common.Decrypt(System.Byte[],System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Giải mã chuỗi bằng Privte Key (chỉ hỗ trợ RSA) trên USB Token
+            </summary>
+            <param name="message"></param>
+            <param name="certificate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.Common.Decrypt(System.Byte[],esDigitalSignature.HSMServiceProvider)">
+            <summary>
+            Giải mã chuỗi bằng Privte Key (chỉ hỗ trợ RSA) trên HSM
+            </summary>
+            <param name="message">Tin nhắn mã hóa</param>
+            <param name="providerHSM">HSMServiceProvider đã đăng nhập và load private key để giải mã</param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.Common.Encrypt_WithLength(System.Byte[],System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Mã hóa chuỗi bằng Public Key của HSM. Thêm 1 byte chỉ độ dài chuỗi.
+            </summary>
+            <param name="message"></param>
+            <param name="certificate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.Common.Decrypt_WithLength(System.Byte[],esDigitalSignature.HSMServiceProvider)">
+            <summary>
+            Giải mã chuỗi bằng Privte Key (chỉ hỗ trợ RSA) trên HSM. Có 1 byte chỉ độ dài chuỗi.
+            </summary>
+            <param name="message">Tin nhắn mã hóa</param>
+            <param name="providerHSM">HSMServiceProvider đã đăng nhập và load private key để giải mã</param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.Common.IsHexDigit(System.Char)">
+            <summary>
+            Returns true is c is a hexadecimal digit (A-F, a-f, 0-9)
+            </summary>
+            <param name="c">Character to test</param>
+            <returns>true if hex digit, false if not</returns>
+        </member>
+        <member name="M:esDigitalSignature.Common.HexToByte(System.String)">
+            <summary>
+            Converts 1 or 2 character string into equivalant byte value
+            </summary>
+            <param name="hex">1 or 2 character string</param>
+            <returns>byte</returns>
+        </member>
+        <member name="M:esDigitalSignature.Common.GetPrivateKeyForSigning(System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            lookup the private key using the given identity
+            </summary>
+            <param name="signer">X509Cert</param>
+            <returns>IDisposable asymmetric algorithm that serves as a proxy to the private key.  Caller must dispose
+            of properly.</returns>
+        </member>
+        <member name="M:esDigitalSignature.Common.ValidateCertificateOffline(System.Security.Cryptography.X509Certificates.X509Certificate2,System.DateTime,System.Security.Cryptography.X509Certificates.X509ChainStatus@)">
+            <summary>
+            Kiểm tra trạng thái chứng thư số trong cache
+            </summary>
+            <param name="certificate">Chứng thư cần kiểm tra</param>
+            <param name="validateTime">Thời điểm cần kiểm tra</param>
+            <param name="certificateStatus">Trả về chi tiết trạng thái</param>
+            <returns></returns>
+        </member>
+        <member name="T:esDigitalSignature.IDigitalSignatureManagerBase">
+            <summary>
+            Giao diện DigitalSignatureManager chung
+            </summary>
+        </member>
+        <member name="M:esDigitalSignature.IDigitalSignatureManagerBase.Sign(System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Ký file bằng USB Token
+            </summary>
+            <param name="certificate">Certificate ký</param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.IDigitalSignatureManagerBase.Sign(System.Security.Cryptography.X509Certificates.X509Certificate2,esDigitalSignature.HSMServiceProvider)">
+            <summary>
+            Ký file bằng HSM
+            </summary>
+            <param name="certificate">Certificate ký</param>
+            <param name="providerHSM">Giao tiếp HSM đã đăng nhập session và load private key. Nếu PrivateKey = null sẽ lấy từ HSM qua Certificate tương ứng</param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.IDigitalSignatureManagerBase.VerifySignatures">
+            <summary>
+            Xác thực tất cả các chữ ký - chạy xác thực trên mỗi chữ ký
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.IDigitalSignatureManagerBase.VerifySignatures(System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Xác thực file có được ký bởi certificate
+            </summary>
+            <param name="certificate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.IDigitalSignatureManagerBase.GetHashValue">
+            <summary>
+            Lấy chuỗi Hash value của file
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.IDigitalSignatureManagerBase.RemoveSignature(esDigitalSignature.ESignature)">
+            <summary>
+            Xóa một chữ ký trên file
+            </summary>
+            <param name="signatureES"></param>
+        </member>
+        <member name="M:esDigitalSignature.IDigitalSignatureManagerBase.RemoveAllSignature">
+            <summary>
+            Xóa tất cả chữ ký trên file
+            </summary>
+        </member>
+        <member name="M:esDigitalSignature.IDigitalSignatureManagerBase.ToArray">
+            <summary>
+            Trả về dữ liệu file sau khi ký. Nếu hàm ký bắn exception thì không sử dụng hàm này.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:esDigitalSignature.IDigitalSignatureManagerBase.Signatures">
+            <summary>
+            Các chữ ký trên file
+            </summary>
+        </member>
+        <member name="P:esDigitalSignature.IDigitalSignatureManagerBase.IsSigned">
+            <summary>
+            File đã được ký hay chưa?
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.ESDigitalSignatureManager">
+            <summary>
+            Lớp quản lý ký và chữ ký số trên file. Cần dispose khi không sử dụng để giải phóng bộ nhớ.
+            <para>Hỗ trợ các định dạng PDF, Office (2007 trở lên) và XML</para>
+            </summary>
+        </member>
+        <member name="M:esDigitalSignature.ESDigitalSignatureManager.#ctor(System.Byte[],System.String)">
+            <summary>
+            Khởi tạo với dữ liệu file - đọc gói file và load chữ ký trên file
+            </summary>
+            <param name="fileData">Dữ liệu file</param>
+            <param name="fileExtension">Định dạng file (.pdf,.docx,.xlsx,.xml hoặc .bid)</param>
+        </member>
+        <member name="M:esDigitalSignature.ESDigitalSignatureManager.Sign(System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Ký file bằng USB Token
+            </summary>
+            <param name="certificate">Certificate ký</param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.ESDigitalSignatureManager.Sign(System.Security.Cryptography.X509Certificates.X509Certificate2,esDigitalSignature.HSMServiceProvider)">
+            <summary>
+            Ký file bằng HSM
+            </summary>
+            <param name="certificate">Certificate ký</param>
+            <param name="providerHSM">Giao tiếp HSM đã đăng nhập session và load private key. Nếu PrivateKey = null sẽ lấy từ HSM qua Certificate tương ứng</param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.ESDigitalSignatureManager.VerifySignatures">
+            <summary>
+            Xác thực tất cả các chữ ký - chạy xác thực trên mỗi chữ ký
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.ESDigitalSignatureManager.VerifySignatures(System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Xác thực file có được ký bởi certificate
+            </summary>
+            <param name="certificate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.ESDigitalSignatureManager.GetHashValue">
+            <summary>
+            Lấy chuỗi Hash value của file
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.ESDigitalSignatureManager.RemoveSignature(esDigitalSignature.ESignature)">
+            <summary>
+            Xóa một chữ ký trên file
+            </summary>
+            <param name="signatureES"></param>
+        </member>
+        <member name="M:esDigitalSignature.ESDigitalSignatureManager.RemoveAllSignature">
+            <summary>
+            Xóa tất cả chữ ký trên file
+            </summary>
+        </member>
+        <member name="M:esDigitalSignature.ESDigitalSignatureManager.ToArray">
+            <summary>
+            Trả về dữ liệu file sau khi ký. Nếu hàm ký bắn exception thì không sử dụng hàm này.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.ESDigitalSignatureManager.Dispose">
+            <summary>
+            Đóng file và giải phóng tài nguyên
+            </summary>
+        </member>
+        <member name="P:esDigitalSignature.ESDigitalSignatureManager.Signatures">
+            <summary>
+            Các chữ ký trên file
+            </summary>
+        </member>
+        <member name="P:esDigitalSignature.ESDigitalSignatureManager.IsSigned">
+            <summary>
+            File đã được ký hay chưa?
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.OfficeDigitalSignatureManager">
+            <summary>
+            Lớp quản lý ký và chữ ký số trên file Office Document. Cần dispose khi không sử dụng để giải phóng file.
+            <para>Lưu ý: Không hỗ trợ Office 97-2003 Document</para>
+            </summary>
+        </member>
+        <member name="M:esDigitalSignature.OfficeDigitalSignatureManager.#ctor(System.Byte[])">
+            <summary>
+            Khởi tạo với dữ liệu file - đọc gói file và load chữ ký trên file
+            </summary>
+            <param name="fileData"></param>
+        </member>
+        <member name="M:esDigitalSignature.OfficeDigitalSignatureManager.Sign(System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Sign Office File (word, excel) bằng USB Token
+            </summary>
+            <param name="certificate">Certificate ký</param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.OfficeDigitalSignatureManager.Sign(System.Security.Cryptography.X509Certificates.X509Certificate2,esDigitalSignature.HSMServiceProvider)">
+            <summary>
+            Sign Office File (word, excel) bằng HSM
+            </summary>
+            <param name="certificate">Certificate ký</param>
+            <param name="providerHSM">Giao tiếp HSM đã đăng nhập session và load private key. Nếu PrivateKey = null sẽ lấy từ HSM qua Certificate tương ứng</param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.OfficeDigitalSignatureManager.VerifySignatures">
+            <summary>
+            Xác thực tất cả các chữ ký - chạy xác thực trên mỗi chữ ký
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.OfficeDigitalSignatureManager.VerifySignatures(System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Xác thực file có được ký bởi certificate
+            </summary>
+            <param name="certificate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.OfficeDigitalSignatureManager.GetHashValue">
+            <summary>
+            Lấy chuỗi Hash value của file
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.OfficeDigitalSignatureManager.RemoveSignature(esDigitalSignature.ESignature)">
+            <summary>
+            Xóa một chữ ký trên file
+            </summary>
+            <param name="signatureES"></param>
+        </member>
+        <member name="M:esDigitalSignature.OfficeDigitalSignatureManager.RemoveAllSignature">
+            <summary>
+            Xóa tất cả chữ ký trên file
+            </summary>
+        </member>
+        <member name="M:esDigitalSignature.OfficeDigitalSignatureManager.ToArray">
+            <summary>
+            Trả về dữ liệu file sau khi ký. Nếu hàm ký bắn exception thì không sử dụng hàm này.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.OfficeDigitalSignatureManager.Dispose">
+            <summary>
+            Đóng file và giải phóng tài nguyên
+            </summary>
+        </member>
+        <member name="P:esDigitalSignature.OfficeDigitalSignatureManager.Package">
+            <summary>
+            Gói file
+            </summary>
+        </member>
+        <member name="P:esDigitalSignature.OfficeDigitalSignatureManager.Signatures">
+            <summary>
+            Các chữ ký trên file
+            </summary>
+        </member>
+        <member name="P:esDigitalSignature.OfficeDigitalSignatureManager.IsSigned">
+            <summary>
+            File đã được ký hay chưa?
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.HSMLoginRole">
+            <summary>
+            Quyền đăng nhập HSM
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMLoginRole.SecurityOfficer">
+            <summary>
+            Security Officer (hoặc Administration Security Officer nếu đăng nhập AdminSlot)
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMLoginRole.User">
+            <summary>
+            User (hoặc Administrator nếu đăng nhập AdminSlot)
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.HSMReturnValue">
+            <summary>
+            Các kết quả có thể trả về khi thực hiện hàm
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.OK">
+            <summary>
+            Thành công
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.CANCEL">
+            <summary>
+            CANCEL
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.HOST_MEMORY">
+            <summary>
+            HOST_MEMORY
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.SLOT_ID_INVALID">
+            <summary>
+            SLOT_ID_INVALID
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.GENERAL_ERROR">
+            <summary>
+            GENERAL_ERROR
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.FUNCTION_FAILED">
+            <summary>
+            FUNCTION_FAILED
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.ARGUMENTS_BAD">
+            <summary>
+            ARGUMENTS_BAD
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.NO_EVENT">
+            <summary>
+            NO_EVENT
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.NEED_TO_CREATE_THREADS">
+            <summary>
+            NEED_TO_CREATE_THREADS
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.CANT_LOCK">
+            <summary>
+            CANT_LOCK
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.ATTRIBUTE_READ_ONLY">
+            <summary>
+            ATTRIBUTE_READ_ONLY
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.ATTRIBUTE_SENSITIVE">
+            <summary>
+            ATTRIBUTE_SENSITIVE
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.ATTRIBUTE_TYPE_INVALID">
+            <summary>
+            ATTRIBUTE_TYPE_INVALID
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.ATTRIBUTE_VALUE_INVALID">
+            <summary>
+            ATTRIBUTE_VALUE_INVALID
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.DATA_INVALID">
+            <summary>
+            DATA_INVALID
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.DATA_LEN_RANGE">
+            <summary>
+            DATA_LEN_RANGE
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.DEVICE_ERROR">
+            <summary>
+            Lỗi thiết bị HSM
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.DEVICE_MEMORY">
+            <summary>
+            Lỗi bộ nhớ thiết bị HSM
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.DEVICE_REMOVED">
+            <summary>
+            DEVICE_REMOVED
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.ENCRYPTED_DATA_INVALID">
+            <summary>
+            ENCRYPTED_DATA_INVALID
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.ENCRYPTED_DATA_LEN_RANGE">
+            <summary>
+            ENCRYPTED_DATA_LEN_RANGE
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.FUNCTION_CANCELED">
+            <summary>
+            FUNCTION_CANCELED
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.FUNCTION_NOT_PARALLEL">
+            <summary>
+            FUNCTION_NOT_PARALLEL
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.FUNCTION_NOT_SUPPORTED">
+            <summary>
+            FUNCTION_NOT_SUPPORTED
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.KEY_HANDLE_INVALID">
+            <summary>
+            KEY_HANDLE_INVALID
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.KEY_SIZE_RANGE">
+            <summary>
+            KEY_SIZE_RANGE
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.KEY_TYPE_INCONSISTENT">
+            <summary>
+            KEY_TYPE_INCONSISTENT
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.KEY_NOT_NEEDED">
+            <summary>
+            KEY_NOT_NEEDED
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.KEY_CHANGED">
+            <summary>
+            KEY_CHANGED
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.KEY_NEEDED">
+            <summary>
+            KEY_NEEDED
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.KEY_INDIGESTIBLE">
+            <summary>
+            KEY_INDIGESTIBLE
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.KEY_FUNCTION_NOT_PERMITTED">
+            <summary>
+            KEY_FUNCTION_NOT_PERMITTED
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.KEY_NOT_WRAPPABLE">
+            <summary>
+            KEY_NOT_WRAPPABLE
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.KEY_UNEXTRACTABLE">
+            <summary>
+            KEY_UNEXTRACTABLE
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.MECHANISM_INVALID">
+            <summary>
+            MECHANISM_INVALID
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.MECHANISM_PARAM_INVALID">
+            <summary>
+            MECHANISM_PARAM_INVALID
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.OBJECT_HANDLE_INVALID">
+            <summary>
+            OBJECT_HANDLE_INVALID
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.OPERATION_ACTIVE">
+            <summary>
+            OPERATION_ACTIVE
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.OPERATION_NOT_INITIALIZED">
+            <summary>
+            OPERATION_NOT_INITIALIZED
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.PIN_INCORRECT">
+            <summary>
+            Sai mã PIN
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.PIN_INVALID">
+            <summary>
+            PIN_INVALID
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.PIN_LEN_RANGE">
+            <summary>
+            PIN_LEN_RANGE
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.PIN_EXPIRED">
+            <summary>
+            PIN hết hiệu lực
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.PIN_LOCKED">
+            <summary>
+            PIN bị khóa do nhập sai 3 lần liên tiếp
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.SESSION_CLOSED">
+            <summary>
+            SESSION_CLOSED 
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.SESSION_COUNT">
+            <summary>
+            SESSION_COUNT
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.SESSION_HANDLE_INVALID">
+            <summary>
+            SESSION_HANDLE_INVALID
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.SESSION_PARALLEL_NOT_SUPPORTED">
+            <summary>
+            SESSION_PARALLEL_NOT_SUPPORTED
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.SESSION_READ_ONLY">
+            <summary>
+            SESSION_READ_ONLY
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.SESSION_EXISTS">
+            <summary>
+            SESSION_EXISTS
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.SESSION_READ_ONLY_EXISTS">
+            <summary>
+            SESSION_READ_ONLY_EXISTS
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.SESSION_READ_WRITE_SO_EXISTS">
+            <summary>
+            SESSION_READ_WRITE_SO_EXISTS
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.SIGNATURE_INVALID">
+            <summary>
+            SIGNATURE_INVALID
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.SIGNATURE_LEN_RANGE">
+            <summary>
+            SIGNATURE_LEN_RANGE
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.TEMPLATE_INCOMPLETE">
+            <summary>
+            TEMPLATE_INCOMPLETE
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.TEMPLATE_INCONSISTENT">
+            <summary>
+            TEMPLATE_INCONSISTENT
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.TOKEN_NOT_PRESENT">
+            <summary>
+            TOKEN_NOT_PRESENT
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.TOKEN_NOT_RECOGNIZED">
+            <summary>
+            TOKEN_NOT_RECOGNIZED
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.TOKEN_WRITE_PROTECTED">
+            <summary>
+            TOKEN_WRITE_PROTECTED
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.UNWRAPPING_KEY_HANDLE_INVALID">
+            <summary>
+            UNWRAPPING_KEY_HANDLE_INVALID
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.UNWRAPPING_KEY_SIZE_RANGE">
+            <summary>
+            UNWRAPPING_KEY_SIZE_RANGE
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.UNWRAPPING_KEY_TYPE_INCONSISTENT">
+            <summary>
+            UNWRAPPING_KEY_TYPE_INCONSISTENT
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.USER_ALREADY_LOGGED_IN">
+            <summary>
+            USER_ALREADY_LOGGED_IN
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.USER_NOT_LOGGED_IN">
+            <summary>
+            USER_NOT_LOGGED_IN
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.USER_PIN_NOT_INITIALIZED">
+            <summary>
+            User PIN chưa được khởi tạo
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.USER_TYPE_INVALID">
+            <summary>
+            USER_TYPE_INVALID
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.USER_ANOTHER_ALREADY_LOGGED_IN">
+            <summary>
+            USER_ANOTHER_ALREADY_LOGGED_IN
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.USER_TOO_MANY_TYPES">
+            <summary>
+            USER_TOO_MANY_TYPES
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.WRAPPED_KEY_INVALID">
+            <summary>
+            WRAPPED_KEY_INVALID
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.WRAPPED_KEY_LEN_RANGE">
+            <summary>
+            WRAPPED_KEY_LEN_RANGE
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.WRAPPING_KEY_HANDLE_INVALID">
+            <summary>
+            WRAPPING_KEY_HANDLE_INVALID
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.WRAPPING_KEY_SIZE_RANGE">
+            <summary>
+            WRAPPING_KEY_SIZE_RANGE
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.WRAPPING_KEY_TYPE_INCONSISTENT">
+            <summary>
+            WRAPPING_KEY_TYPE_INCONSISTENT
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.RANDOM_SEED_NOT_SUPPORTED">
+            <summary>
+            RANDOM_SEED_NOT_SUPPORTED
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.RANDOM_NO_RNG">
+            <summary>
+            RANDOM_NO_RNG
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.DOMAIN_PARAMS_INVALID">
+            <summary>
+            DOMAIN_PARAMS_INVALID
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.BUFFER_TOO_SMALL">
+            <summary>
+            BUFFER_TOO_SMALL
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.SAVED_STATE_INVALID">
+            <summary>
+            SAVED_STATE_INVALID
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.INFORMATION_SENSITIVE">
+            <summary>
+            INFORMATION_SENSITIVE
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.STATE_UNSAVEABLE">
+            <summary>
+            STATE_UNSAVEABLE
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.CRYPTOKI_NOT_INITIALIZED">
+            <summary>
+            Cryptoki chưa khởi tạo do hàm khởi tạo HSMServiceProvider(string dll) chưa được gọi hoặc thất bại
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.CRYPTOKI_ALREADY_INITIALIZED">
+            <summary>
+            CRYPTOKI_ALREADY_INITIALIZED
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.MUTEX_BAD">
+            <summary>
+            MUTEX_BAD
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMReturnValue.MUTEX_NOT_LOCKED">
+            <summary>
+            MUTEX_NOT_LOCKED
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.HSMKeyPairType">
+            <summary>
+            Thuật toán để gen cặp khóa
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMKeyPairType.RSA">
+            <summary>
+            RSA
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMKeyPairType.DSA">
+            <summary>
+            DSA
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.HSMObjectClass">
+            <summary>
+            Các loại đối tượng trong slot
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMObjectClass.PUBLIC_KEY">
+            <summary>
+            PUBLIC_KEY
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMObjectClass.PRIVATE_KEY">
+            <summary>
+            PRIVATE_KEY
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMObjectClass.CERTIFICATE">
+            <summary>
+            CERTIFICATE
+            </summary>
+        </member>
+        <member name="F:esDigitalSignature.HSMObjectClass.CERTIFICATE_REQUEST">
+            <summary>
+            CERTIFICATE_REQUEST
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.HSM_RSA">
+            <summary>
+            Lớp RSA Private Key kết nối với HSM qua KeyObj
+            </summary>
+        </member>
+        <member name="M:esDigitalSignature.HSM_RSA.#ctor(esDigitalSignature.eToken.PKCS11.Object)">
+            <summary>
+            Khởi tạo
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:esDigitalSignature.HSM_RSA.FromXmlString(System.String)">
+            <summary>
+            FromXmlString
+            </summary>
+            <param name="xmlString"></param>
+        </member>
+        <member name="M:esDigitalSignature.HSM_RSA.ToXmlString(System.Boolean)">
+            <summary>
+            ToXmlString
+            </summary>
+            <param name="includePrivateParameters"></param>
+            <returns></returns>
+        </member>
+        <member name="P:esDigitalSignature.HSM_RSA.KeyObj">
+            <summary>
+            Object thể hiện Private Key trong HSM
+            </summary>
+        </member>
+        <member name="P:esDigitalSignature.HSM_RSA.KeyType">
+            <summary>
+            KeyType
+            </summary>
+        </member>
+        <member name="P:esDigitalSignature.HSM_RSA.KeyExchangeAlgorithm">
+            <summary>
+            KeyExchangeAlgorithm
+            </summary>
+        </member>
+        <member name="P:esDigitalSignature.HSM_RSA.SignatureAlgorithm">
+            <summary>
+            SignatureAlgorithm
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.HSM_DSA">
+            <summary>
+            Lớp DSA Private Key kết nối với HSM qua KeyObj
+            </summary>
+        </member>
+        <member name="M:esDigitalSignature.HSM_DSA.#ctor(esDigitalSignature.eToken.PKCS11.Object)">
+            <summary>
+            Khởi tạo
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:esDigitalSignature.HSM_DSA.FromXmlString(System.String)">
+            <summary>
+            FromXmlString
+            </summary>
+            <param name="xmlString"></param>
+        </member>
+        <member name="M:esDigitalSignature.HSM_DSA.ToXmlString(System.Boolean)">
+            <summary>
+            ToXmlString
+            </summary>
+            <param name="includePrivateParameters"></param>
+            <returns></returns>
+        </member>
+        <member name="P:esDigitalSignature.HSM_DSA.KeyObj">
+            <summary>
+            Object thể hiện Private Key trong HSM
+            </summary>
+        </member>
+        <member name="P:esDigitalSignature.HSM_DSA.KeyType">
+            <summary>
+            KeyType
+            </summary>
+        </member>
+        <member name="P:esDigitalSignature.HSM_DSA.KeyExchangeAlgorithm">
+            <summary>
+            KeyExchangeAlgorithm
+            </summary>
+        </member>
+        <member name="P:esDigitalSignature.HSM_DSA.SignatureAlgorithm">
+            <summary>
+            SignatureAlgorithm
+            </summary>
+        </member>
+        <member name="T:esDigitalSignature.HSMServiceProvider">
+            <summary>
+            Lớp cung cấp giao tiếp với HSM
+            </summary>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.#ctor">
+            <summary>
+            Khởi tạo do nothing
+            </summary>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.#ctor(System.String)">
+            <summary>
+            Khởi tạo kết nối HSM sử dụng thư viện Cryptographic Token Interface Standard (CRYPTOKI)
+            </summary>
+            <param name="dll">Tên thư viện Cryptoki</param>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.#ctor(System.String,esDigitalSignature.HSMLoginRole,System.String)">
+            <summary>
+            Khởi tạo session mới và login.
+            <para>Phải gọi HSMServiceProvider.Initialize() để khởi tạo kết nối HSM trước khi dùng hàm khởi tạo này 
+            và gọi HSMServiceProvider.Finalize() sau khi kết thúc sử dụng.</para>
+            </summary>
+            <param name="slotSerial"></param>
+            <param name="role"></param>
+            <param name="password"></param>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.Dispose">
+            <summary>
+            Giải phóng kết nối HSM
+            </summary>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.Initialize(System.String)">
+            <summary>
+            Khởi tạo kết nối tĩnh đến HSM
+            </summary>
+            <param name="dll"></param>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.Finalize">
+            <summary>
+            Đóng kết nối đến HSM
+            </summary>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.Login(System.Int32,esDigitalSignature.HSMLoginRole,System.String)">
+            <summary>
+            Mở session và đăng nhập vào Slot trên HSM
+            </summary>
+            <param name="slotID">Slot ID</param>
+            <param name="role">Kiểu đăng nhập (Security Officer/User)</param>
+            <param name="password">Mật khẩu đăng nhập slot</param>
+            <returns>OK nếu đăng nhập thành công</returns>
+            <exception cref="T:HSM_SlotNotFound">Xảy ra khi không tìm thấy slot</exception>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.Login(System.String,esDigitalSignature.HSMLoginRole,System.String)">
+            <summary>
+            Mở session và đăng nhập vào Slot trên HSM
+            </summary>
+            <param name="slotSerial">Số serial của slot</param>
+            <param name="role">Kiểu đăng nhập (Security Officer/User)</param>
+            <param name="password">Mật khẩu đăng nhập slot</param>
+            <returns>OK nếu đăng nhập thành công</returns>
+            <exception cref="T:HSM_SlotNotFound">Xảy ra khi không tìm thấy slot</exception>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.Logout">
+            <summary>
+            Đăng xuất và đóng session
+            </summary>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.GetCertificate(System.String)">
+            <summary>
+            Lấy certificate từ HSM theo label
+            </summary>
+            <param name="label"></param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.LoadPrivateKeyByLABEL(System.String)">
+            <summary>
+            Lấy Private Key từ HSM theo thuộc tính LABEL
+            </summary>
+            <param name="label"></param>
+            <returns></returns>
+            <exception cref="T:HSM_DuplicateKey"></exception>
+            <exception cref="T:HSM_KeyTypeNotSupported"></exception>
+            <exception cref="T:HSM_KeyNotFound"></exception>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.LoadPrivateKeyByID(System.Byte[])">
+            <summary>
+            Lấy Private Key từ HSM theo thuộc tính ID (một bộ PublicKey + PrivateKey + Certificate tương ứng có cùng ID)
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+            <exception cref="T:HSM_DuplicateKey"></exception>
+            <exception cref="T:HSM_KeyTypeNotSupported"></exception>
+            <exception cref="T:HSM_KeyNotFound"></exception>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.LoadPrivateKeyByCertificate(System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Lấy private key theo certificate tương ứng trong HSM
+            </summary>
+            <param name="certificate"></param>
+            <returns></returns>
+            <exception cref="T:HSM_DuplicateCertificate"></exception>
+            <exception cref="T:HSM_CannotLocateCertificate"></exception>
+            <exception cref="T:HSM_DuplicateKey"></exception>
+            <exception cref="T:HSM_KeyTypeNotSupported"></exception>
+            <exception cref="T:HSM_KeyNotFound"></exception>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.SignHash(System.Byte[],System.String)">
+            <summary>
+            Kí chuỗi hash với private key đã khởi tạo (EMSA-PKCS-v1.5, PKCS #1 v2.2 RSA Cryptography Standart)
+            </summary>
+            <param name="hashvalue">Hash Value from file data</param>
+            <param name="oid">Hash Algorithm Identifier</param>
+            <returns>Chuỗi chữ ký</returns>
+            <exception cref="T:HSM_LoadKeyFailed"></exception>
+            <exception cref="T:HSM_KeyTypeNotSupported"></exception>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.SignData(System.Byte[])">
+            <summary>
+            Kí chuỗi với private key đã khởi tạo
+            </summary>
+            <param name="dataToSign">Dữ liệu để ký</param>
+            <returns>Chuỗi chữ ký</returns>
+            <exception cref="T:HSM_LoadKeyFailed"></exception>
+            <exception cref="T:HSM_KeyTypeNotSupported"></exception>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.DecryptMessage(System.Byte[])">
+            <summary>
+            Giải mã chuỗi bằng Private Key
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.GetDeviceList">
+            <summary>
+            Lấy danh sách thiết bị HSM
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.GetSlotList">
+            <summary>
+            Lấy danh sách slot/WLDSlot khả dụng
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.LoginAdmin(System.Int32,esDigitalSignature.HSMLoginRole,System.String)">
+            <summary>
+            Đăng nhập quyền Administrator của thiết bị.
+            </summary>
+            <param name="deviceID"></param>
+            <param name="role"></param>
+            <param name="pin"></param>
+            <returns>OK nếu đăng nhập thành công</returns>
+            <exception cref="T:HSM_AdminSlotNotFound">Xảy ra khi không tìm thấy Admin Slot của thiết bị</exception>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.ChangeAdminPIN(System.String,System.String)">
+            <summary>
+            Đổi mật khẩu Administrator của HSM (mật khẩu Admin Slot).
+            <para>Chú ý: phải LoginAdmin trước khi gọi hàm này.</para>
+            <para>Chú ý: Đăng nhập bằng role nào sẽ đổi mật khẩu của role tương ứng.</para>
+            </summary>
+            <param name="oldPin">Mật khẩu cũ</param>
+            <param name="newPin">Mật khẩu mới</param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.CreateSlot(System.String)">
+            <summary>
+            Tạo một slot mới.
+            <para>Chú ý: phải LoginAdmin với role User vào device tương ứng trước khi gọi hàm này.</para>
+            <para>Chú ý: hàm này không khởi tạo token do đó sau khi thực hiện phải Dispose() và đăng nhập lại để khởi tạo.</para>
+            </summary>
+            <param name="slotLabel">Tên slot mới</param>
+            <returns>Số serial của slot mới được tạo</returns>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.InitToken(System.String,System.String,System.String,System.String)">
+            <summary>
+            Khởi tạo token cho slot.
+            <para>Chú ý: phải LoginAdmin với role User trước khi gọi hàm này.</para>
+            <para>Chú ý: sau khi chạy hàm này sẽ mất session do đó phải đăng nhập lại nếu muốn tiếp tục sử dụng.</para> 
+            </summary>
+            <param name="slotSerial">Id của slot mới được tạo</param>
+            <param name="slotLabel">Tên slot mới</param>
+            <param name="slotSOPin">Mật khẩu quyền SO của slot mới</param>
+            <param name="slotUserPin">Mật khẩu quyền User của slot mới</param>
+            <exception cref="T:HSM_SlotNotFound">Xảy ra khi không tìm thấy slot</exception>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.DestroySlot(System.String)">
+            <summary>
+            Xóa slot.
+            <para>Chú ý: chỉ cho phép xóa khi slot không chứa object nào.</para>
+            <para>Chú ý: phải đăng nhập Admin User trước khi gọi hàm này.</para>
+            </summary>
+            <param name="slotSerial">Số serial của slot cần xóa</param>
+            <exception cref="T:HSM_SlotNotFound">Xảy ra khi không tìm thấy slot.</exception>
+            <exception cref="T:HSM_SlotNotEmpty">Xảy ra khi slot đang chứa object.</exception>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.ReplicateToken(System.String,System.String,System.String,System.String)">
+            <summary>
+            Nhân bản token/slot. 
+            <para>Chú ý: phải gọi hàm Finalize() sau khi hoàn thành.</para>
+            </summary>
+            <param name="srcSlotSerial">Số serial của slot nguồn</param>
+            <param name="destSlotSerial">Số serial của slot đích</param>
+            <param name="userPin">User PIN</param>
+            <param name="destHsmSerial">Số serial của HSM đích (HSM Identity Key's ID)</param>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.ChangeSlotPIN(System.String,System.String)">
+            <summary>
+            Đổi mật khẩu slot.
+            <para>Chú ý: phải Login() trước khi gọi hàm này.</para>
+            <para>Chú ý: Đăng nhập bằng role nào sẽ đổi mật khẩu của role tương ứng.</para>
+            </summary>
+            <param name="oldPin">Mật khẩu cũ</param>
+            <param name="newPin">Mật khẩu mới</param>
+            <returns></returns>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.GenerateKeyPairAndRequest(esDigitalSignature.HSMKeyPairType,System.String,System.String,System.String,System.String)">
+            <summary>
+            Hàm tạo cặp khóa Private key + Public key và tạo certificate request.
+            </summary>
+            <param name="keyType">Kiểu cặp khóa: RSA/DSA</param>
+            <param name="subject">Tên CN của chứng thư số</param>
+            <param name="labelPUB">Tên public key trong HSM</param>
+            <param name="labelPRV">Tên private key trong HSM</param>
+            <param name="labelREQ">Tên request trong HSM</param>
+            <returns>ID cặp khóa</returns>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.ExportCertificateRequestToPEM(System.Byte[])">
+            <summary>
+            Hàm xuất certificate request ra chuỗi text định dạng PEM.
+            <para>Chú ý: ghi chuỗi này vào file và gửi cho nhà cung cấp CA để đăng ký chứng thư số.</para>
+            </summary>
+            <param name="reqID">Trường ID của request trong HSM</param>
+            <returns></returns>
+            <exception cref="T:HSM_CertificateRequestNotFound">nếu không tìm thấy Certificate Request trong HSM</exception>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.ImportCertificateFromX509(System.String,System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Import certificate vào HSM từ X509Certificate. Trả về CKA_ID của object
+            </summary>
+            <param name="keyID">ID của public key tương ứng trong HSM</param>
+            <param name="labelCERT">Tên đối tượng certificate trong HSM</param>
+            <param name="certificate">Chứng thư số định dạng X509Certificate được đọc từ file PEM</param>
+            <exception cref="T:HSM_PublicKeyNotMatch">Không tìm thấy public key tương ứng trong slot</exception>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.SetObjectStatus(System.String,esDigitalSignature.HSMObjectClass,System.Byte[],System.Boolean)">
+            <summary>
+            Thiết lập trạng thái hiệu lực hoặc không hiệu lực cho đối tượng trong slot.
+            </summary>
+            <param name="label">Tên đối tượng</param>
+            <param name="objClass">Loại đối tượng</param>
+            <param name="objID">ID đối tượng</param>
+            <param name="isEnable">Trạng thái thiết lập</param>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.DeleteObject(System.String,esDigitalSignature.HSMObjectClass,System.Byte[])">
+            <summary>
+            Xóa các đối tượng trong slot.
+            </summary>
+            <param name="label">Tên đối tượng</param>
+            <param name="objClass">Loại đối tượng</param>
+            <param name="objID">ID đối tượng</param>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.CreateWLDSlot(System.Int32,System.String,System.String,System.String)">
+            <summary>
+            Tạo WLD slot trong Registry mới để trỏ đến HSM Slot cùng token label.
+            </summary>
+            <param name="wldSlotID">Chỉ số slot, sẽ được được cấu hình trong Registry dạng tên khóa ET_PKCS_WLD_SLOT_[wldSlotID]</param>
+            <param name="tokenLabel">Token label để ánh xạ đến các slot vật lý cùng tên, sẽ được lưu trong Registry</param>
+            <param name="serial">Số Serial tự đặt, sẽ được lưu trong Resgistry</param>
+            <param name="description">Mô tả, sẽ được lưu trong Registry</param>
+        </member>
+        <member name="M:esDigitalSignature.HSMServiceProvider.DeleteWLDSlot(System.Int32)">
+            <summary>
+            Xóa WLD Slot trong Registry
+            </summary>
+            <param name="wldSlotID">Chỉ số slot, được được cấu hình trong Registry dạng tên khóa ET_PKCS_WLD_SLOT_[wldSlotID]</param>
+        </member>
+        <member name="P:esDigitalSignature.HSMServiceProvider.PrivateKey">
+            <summary>
+            Private Key dùng để ký
+            </summary>
+        </member>
+        <member name="P:esDigitalSignature.HSMServiceProvider.IsDisposed">
+            <summary>
+            Đã đóng session và giải phóng DLL hay chưa.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,11 @@
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementBUS\bin\Debug\ES.CA_ManagementBUS.dll
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementBUS\bin\Debug\ES.CA_ManagementBUS.pdb
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementBUS\bin\Debug\ES.CA_ManagementDAL.dll
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementBUS\bin\Debug\ESLogin.dll
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementBUS\bin\Debug\C1.Win.C1FlexGrid.4.dll
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementBUS\bin\Debug\ES.CA_ManagementDAL.pdb
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementBUS\bin\Debug\ESLogin.pdb
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementBUS\bin\Debug\C1.Win.C1FlexGrid.4.xml
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementBUS\obj\Debug\CA_ManagementBUS.csprojResolveAssemblyReference.cache
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementBUS\obj\Debug\ES.CA_ManagementBUS.dll
+E:\ES_CAVCGM\Source code\CA_Management\CA_ManagementBUS\obj\Debug\ES.CA_ManagementBUS.pdb

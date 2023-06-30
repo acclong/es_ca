@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Config>
+  <ServerName>SVR03</ServerName>
+  <DatabaseName>CA</DatabaseName>
+  <UserName>sa</UserName>
+  <ComapanyID>
+  </ComapanyID>
+  <ComputerID>BFEBF-BFF00-0906E-ADefa-ult s-tring</ComputerID>
+  <dbUsername_default>CA_Management</dbUsername_default>
+  <dbPassword_default>CA_Management@123456</dbPassword_default>
+</Config>

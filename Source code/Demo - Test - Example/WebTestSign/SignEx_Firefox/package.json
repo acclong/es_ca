@@ -1,0 +1,9 @@
+{
+  "name": "signex_firefox",
+  "title": "SignWeb NLDC",
+  "id": "jid1-6w4ad5Nfsf8LRw",
+  "description": "Hỗ trợ chữ ký số trên website của NLDC",
+  "author": "E-Solutions",
+  "license": "MPL 2.0",
+  "version": "1.0"
+}
