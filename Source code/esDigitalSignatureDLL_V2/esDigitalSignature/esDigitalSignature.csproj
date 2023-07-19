@@ -81,6 +81,7 @@
     <Compile Include="Common.cs" />
     <Compile Include="IDigitalSignatureManagerBase.cs" />
     <Compile Include="ESDigitalSignatureManager.cs" />
+    <Compile Include="LogHelper.cs" />
     <Compile Include="OfficeDigitalSignatureManager.cs" />
     <Compile Include="eTokenPKCS11\Const.cs" />
     <Compile Include="eTokenPKCS11\Crypto.cs" />
@@ -1901,7 +1902,6 @@
     <Compile Include="XmlDigitalSignatureManager.cs" />
     <Compile Include="Xml\XmlSignatureProcessor.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="iTextSharp\text\pdf\fonts\glyphlist.txt" />
     <Content Include="iTextSharp\xmp\impl\package.html" />

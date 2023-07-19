@@ -30,6 +30,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Runtime.InteropServices;
+using System.Security;
+using System.Runtime.ExceptionServices;
 
 namespace esDigitalSignature.eToken
 {
@@ -111,13 +113,23 @@ namespace esDigitalSignature.eToken
             if (!initialized) Exception.check(CKR_CRYPTOKI_NOT_INITIALIZED);
         }
 
+        [HandleProcessCorruptedStateExceptions]
+        [SuppressUnmanagedCodeSecurity]
+        [SecurityCritical]
         internal static void clean()
         {
             lock (locker)
             {
-                if (module == IntPtr.Zero) return;
-                FreeLibrary(module);
-                module = IntPtr.Zero;
+                try
+                {
+                    //if (module == IntPtr.Zero) return;
+                    FreeLibrary(module);
+                    //module = IntPtr.Zero;
+                }
+                catch (Exception e) 
+                {
+                    throw new Exception(CKR_FUNCTION_FAILED);
+                }
             }
         }
 
@@ -1230,6 +1242,8 @@ namespace esDigitalSignature.eToken
         {
             lock (locker)
             {
+                if (module != IntPtr.Zero) return;
+
                 module = LoadLibrary(dllName);
                 if (module == IntPtr.Zero) throw new System.ComponentModel.Win32Exception();
 
@@ -1273,21 +1287,29 @@ namespace esDigitalSignature.eToken
                 //}
 
                 rv = PKCS11.fl.C_Initialize(IntPtr.Zero);
-                if (rv != 0)
-                {
-                    clean();
-                    throw new Exception(CKR_FUNCTION_FAILED);
-                }
+                //if (rv != 0)
+                //{
+                //    clean();
+                //    throw new Exception(CKR_FUNCTION_FAILED);
+                //}
             }
         }
 
+        [HandleProcessCorruptedStateExceptions]
+        [SuppressUnmanagedCodeSecurity]
+        [SecurityCritical]
         public static void Finalize()
         {
             lock (locker)
             {
-                if (module == IntPtr.Zero) return;
-                PKCS11.fl.C_Finalize(IntPtr.Zero);
+                try
+                {
+                    PKCS11.fl.C_Finalize(IntPtr.Zero);
+                }
+                catch { }
+
                 clean();
+                module = IntPtr.Zero;
             }
         }
 
