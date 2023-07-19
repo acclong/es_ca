@@ -267,6 +267,78 @@ namespace esDigitalSignature
             EnsureSignatures();
         }
 
+        public void KySoVoiChuKyAnh(X509Certificate2 certificate, HSMServiceProvider providerHSM, Stream byteStream, ToaDoKy toaDoky, byte[] anhChuky, byte[] font, string tenNguoiKySo)
+        {
+            try
+            {
+                float llx = toaDoky.ToaDo[0];
+                float lly = toaDoky.ToaDo[1];
+                float width = toaDoky.ToaDo[2];
+                float height = toaDoky.ToaDo[3];
+
+                if (certificate == null) throw new ArgumentNullException("certificate");
+
+                //Tạo file tạm
+                _byteStream = new MemoryStream();
+                // reader and stamper
+                // @param append if <CODE>true</CODE> the signature and all the other content will be added as a
+                // new revision thus not invalidating existing signatures
+                PdfStamper pdfStamper = PdfStamper.CreateSignature(_reader, _byteStream, '\0', null, true);
+
+                //Get the raw PDF stream "on top" of the existing content
+                // thêm tên người ký ảnh vào giữa - dưới chữ ký ảnh
+                var cb = pdfStamper.GetOverContent(toaDoky.page);
+
+                var arialFontPath = AppDomain.CurrentDomain.BaseDirectory + "Assets\\fonts\\ARIALUNI.TTF";
+                var arialBaseFont = BaseFont.CreateFont(arialFontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+                var fontSize = 9;
+
+                var textWidth = arialBaseFont.GetWidthPoint(tenNguoiKySo, fontSize);
+                cb.BeginText();
+                cb.SetFontAndSize(arialBaseFont, fontSize);
+                cb.SetTextMatrix(llx + width / 2 - textWidth / 2, lly - 10);
+                cb.ShowText(String.Format(tenNguoiKySo, toaDoky.page));
+                cb.EndText();
+
+                //Certificate
+                Org.BouncyCastle.X509.X509CertificateParser cp = new Org.BouncyCastle.X509.X509CertificateParser();
+                Org.BouncyCastle.X509.X509Certificate[] chain = new Org.BouncyCastle.X509.X509Certificate[] { cp.ReadCertificate(certificate.RawData) };
+                //TOANTK: fix cứng HashAlgorithm = "SHA-1"
+                IExternalSignature externalSignature = new X509Certificate2Signature(certificate, Common.HashAlgorithm, providerHSM);
+
+                //Toantk 17/8/2016: thêm timestamp
+                ITSAClient tsaClient = new TSAClientBouncyCastle(Common.TSAServerUri, null, null, 4096, Common.HashAlgorithm);
+
+                //LogHelper.WriteLog("KySoVoiChuKyAnh: thêm ảnh chữ ký", "PdfSign");
+
+                // appearance
+                PdfSignatureAppearance signatureAppearance = pdfStamper.SignatureAppearance;
+                ////TOANTK: thời điểm ký. Mặc định = DateTime.Now
+                //signatureAppearance.SignDate = DateTime.Now;
+                signatureAppearance.SetVisibleSignature(new Rectangle(llx, lly, llx + width, lly + height), page: toaDoky.page, null);
+
+                signatureAppearance.Reason = certificate.Subject;
+                signatureAppearance.Location = certificate.FriendlyName;
+                signatureAppearance.Image = iTextSharp.text.Image.GetInstance(anhChuky);
+                signatureAppearance.Layer2Text = "";
+
+                //digital signature
+                MakeSignature.SignDetached(signatureAppearance, externalSignature, chain, null, null, tsaClient, 0, CryptoStandard.CMS, providerHSM);
+
+                //Save to reader
+                _reader.Close();
+                _reader = new PdfReader(_byteStream.ToArray());
+
+                //Load lại chữ ký
+                _signatures = null;
+                EnsureSignatures();
+            }
+            catch (Exception ex)
+            {
+                //LogHelper.WriteLog("KySoVoiChuKyAnh exception: " + ex.Message + "|" + ex.StackTrace + "\r\n", "PdfSign");
+            }
+        }
+
         /// <summary>
         /// Xác thực tất cả các chữ ký - chạy xác thực trên mỗi chữ ký
         /// </summary>
@@ -842,5 +914,13 @@ namespace esDigitalSignature
         //        return false;
         //    }
         //}
+    }
+
+    public class ToaDoKy
+    {
+        public string MaDoiTuongKy { get; set; }
+        public float[] ToaDo { get; set; }
+        public int page { get; set; }
+        public float pageHeight { get; set; }
     }
 }
